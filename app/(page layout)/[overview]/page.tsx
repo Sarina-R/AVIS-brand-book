@@ -6,14 +6,14 @@ import { usePathname } from "next/navigation";
 import { useMDXComponents } from "@/mdx-component";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import OverviewSection from "@/components/dynamic-section/OverviewSection";
-// import StatementSection from "@/components/dynamic-section/StatementSection";
-// import BrandPrism from "@/components/dynamic-section/BrandPrism";
-// import ToneOfVoiceSection from "@/components/dynamic-section/ToneOfVoiceSection";
-// import TaglineSection from "@/components/dynamic-section/TaglineSection";
-// import DesignPrinciplesSection from "@/components/dynamic-section/DesignPrinciplesSection";
-// import LogoSection from "@/components/dynamic-section/LogoSection";
-// import ColorSection from "@/components/dynamic-section/ColorSection";
-// import TypographySection from "@/components/dynamic-section/TypographySection";
+import StatementSection from "@/components/dynamic-section/StatementSection";
+import BrandPrism from "@/components/dynamic-section/BrandPrism";
+import ToneOfVoiceSection from "@/components/dynamic-section/ToneOfVoiceSection";
+import TaglineSection from "@/components/dynamic-section/TaglineSection";
+import DesignPrinciplesSection from "@/components/dynamic-section/DesignPrinciplesSection";
+import LogoSection from "@/components/dynamic-section/LogoSection";
+import ColorSection from "@/components/dynamic-section/ColorSection";
+import TypographySection from "@/components/dynamic-section/TypographySection";
 
 const Page = () => {
   const { data, loading } = useData();
@@ -33,11 +33,27 @@ const Page = () => {
   }
 
   const parts = pathname.split("/").filter(Boolean);
-  const itemId = parts[1];
+  const itemId = parts[0];
+
+  if (!itemId) {
+    return (
+      <div className="text-red-500 text-center mt-10 min-h-[72vh]">
+        Invalid page ID
+      </div>
+    );
+  }
 
   const currentType = Object.values(data.menu)
     .flatMap((menu) => menu.items)
     .find((item) => item.id === itemId)?.type;
+
+  if (!currentType) {
+    return (
+      <div className="text-red-500 text-center mt-10 min-h-[72vh]">
+        Page not found
+      </div>
+    );
+  }
 
   const section = data.sections.find((sec) => sec.type === currentType);
 
@@ -45,7 +61,7 @@ const Page = () => {
     if (!section) {
       return (
         <div className="text-red-500 text-center mt-10 min-h-[72vh]">
-          Section not found.
+          Section not found
         </div>
       );
     }
@@ -54,56 +70,56 @@ const Page = () => {
       switch (section.type) {
         case "overview":
           return <OverviewSection key={section.type} section={section} />;
-        // case "statement":
-        //   return <StatementSection key={section.type} section={section} />;
-        // case "brand_prism":
-        //   return (
-        //     <BrandPrism
-        //       key={section.type}
-        //       section={section}
-        //       primaryColor={data.brand.primaryColor || "black"}
-        //     />
-        //   );
-        // case "tone_of_voice":
-        //   return (
-        //     <ToneOfVoiceSection
-        //       key={section.type}
-        //       section={section}
-        //       primaryColor={data.brand.primaryColor}
-        //     />
-        //   );
-        // case "tagline":
-        //   return <TaglineSection key={section.type} section={section} />;
-        // case "design_principles":
-        //   return (
-        //     <DesignPrinciplesSection
-        //       key={section.type}
-        //       section={section}
-        //       primaryColor={data.brand.primaryColor}
-        //     />
-        //   );
-        // case "logo":
-        //   return (
-        //     <LogoSection
-        //       key={section.type}
-        //       section={section}
-        //       logo={data.brand.logo}
-        //       darkLogo={data.brand.darkLogo}
-        //     />
-        //   );
-        // case "mascot":
-        // case "identity_in_use":
-        //   return <TaglineSection key={section.type} section={section} />;
-        // case "color":
-        //   return (
-        //     <ColorSection
-        //       key={section.type}
-        //       section={section}
-        //       primaryColor={data.brand.primaryColor}
-        //     />
-        //   );
-        // case "typography":
-        //   return <TypographySection key={section.type} section={section} />;
+        case "statement":
+          return <StatementSection key={section.type} section={section} />;
+        case "brand_prism":
+          return (
+            <BrandPrism
+              key={section.type}
+              section={section}
+              primaryColor={data.brand.primaryColor || "black"}
+            />
+          );
+        case "tone_of_voice":
+          return (
+            <ToneOfVoiceSection
+              key={section.type}
+              section={section}
+              primaryColor={data.brand.primaryColor}
+            />
+          );
+        case "tagline":
+          return <TaglineSection key={section.type} section={section} />;
+        case "design_principles":
+          return (
+            <DesignPrinciplesSection
+              key={section.type}
+              section={section}
+              primaryColor={data.brand.primaryColor}
+            />
+          );
+        case "logo":
+          return (
+            <LogoSection
+              key={section.type}
+              section={section}
+              logo={data.brand.logo}
+              darkLogo={data.brand.darkLogo}
+            />
+          );
+        case "mascot":
+        case "identity_in_use":
+          return <TaglineSection key={section.type} section={section} />;
+        case "color":
+          return (
+            <ColorSection
+              key={section.type}
+              section={section}
+              primaryColor={data.brand.primaryColor}
+            />
+          );
+        case "typography":
+          return <TypographySection key={section.type} section={section} />;
         default:
           if (isMDXSection(section)) {
             return (
