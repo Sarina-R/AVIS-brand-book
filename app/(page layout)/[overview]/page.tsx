@@ -44,7 +44,9 @@ const Page = () => {
   const renderSection = () => {
     if (!section) {
       return (
-        <div className="text-red-500 text-center mt-10">Section not found.</div>
+        <div className="text-red-500 text-center mt-10 min-h-[72vh]">
+          Section not found.
+        </div>
       );
     }
 
