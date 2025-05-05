@@ -84,7 +84,7 @@ export function AppSidebar() {
                 className="object-contain hidden dark:block max-h-[30px] m-auto"
                 priority
               />
-              <p className="text-xs pr-4">AVIS Design System</p>
+              <p className="text-xs pr-4 font-bold">AVIS Design System</p>
             </div>
           )}
 
