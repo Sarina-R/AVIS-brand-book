@@ -88,10 +88,10 @@ export function AppSidebar() {
             </div>
           )}
 
-          <SidebarContent className="py-4">
+          <SidebarContent className="py-4 text-neutral-600 dark:text-neutral-400">
             {groups.map((group, index) => (
               <SidebarGroup key={index} className="p-3 px-6">
-                <SidebarGroupLabel className="font-light">
+                <SidebarGroupLabel className="font-light text-neutral-500">
                   {group.label}
                 </SidebarGroupLabel>
                 <SidebarGroupContent>

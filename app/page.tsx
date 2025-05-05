@@ -89,7 +89,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="min-h-screen border-t text-neutral-900 dark:bg-neutral-950 dark:text-white transition-colors px-0">
+      <div className="min-h-screen border-t text-neutral-800 dark:text-neutral-200 transition-colors px-0">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 border-neutral-200 dark:border-neutral-800">
           {data.visualSectionCards.map((item, i) => (
             <motion.div
