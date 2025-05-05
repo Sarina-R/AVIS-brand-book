@@ -80,7 +80,7 @@ export default function RootLayout({
   }
 
   return (
-    <div>
+    <div className="p-4">
       {children}
       <footer className="bg-neutral-100 dark:bg-neutral-900 h-20 rounded-2xl font-bold px-4 items-center w-full flex justify-between">
         {prevItem ? (

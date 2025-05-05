@@ -8,7 +8,6 @@ import { TabsContentItem } from "@/app/type";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { useMDXComponents1 } from "@/mdx-component";
 import { lighten } from "polished";
-import { useFont } from "@/hooks/FontProvider";
 
 export const CustomTabs = ({
   tabs,
@@ -24,7 +23,6 @@ export const CustomTabs = ({
   primaryColor: string;
 }) => {
   const lighterColor = lighten(0.2, primaryColor);
-  const { headerFont } = useFont();
 
   const mdxComponent1 = useMDXComponents1({});
   const svgLessTabs = tabs.filter((tab) => !tab.svg);
@@ -64,7 +62,6 @@ export const CustomTabs = ({
         <div className="flex gap-6 border-b border-muted pb-2 mb-4 relative">
           {tabs.map((tab, index) => (
             <button
-              style={{ fontFamily: headerFont }}
               key={`${tab.title}+${index}`}
               onClick={() => setSelectedTab(tab.title)}
               className={clsx(
@@ -122,12 +119,7 @@ export const CustomTabs = ({
               )}
             </div>
             <div className="w-full lg:w-1/2 p-4">
-              <h3
-                className="text-2xl font-semibold mb-4"
-                style={{ fontFamily: headerFont }}
-              >
-                {tab.title}
-              </h3>
+              <h3 className="text-2xl font-semibold mb-4">{tab.title}</h3>
               <div className="text-neutral-600 dark:text-neutral-400 leading-6 whitespace-pre-line">
                 {tab.serializedDescription ? (
                   <MDXRemote

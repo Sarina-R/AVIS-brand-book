@@ -1,5 +1,4 @@
 import { HarmonySection } from "@/app/type";
-import { useFont } from "@/hooks/FontProvider";
 import { useMDXComponents } from "@/mdx-component";
 import { AnimatePresence, motion } from "framer-motion";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
@@ -7,7 +6,6 @@ import React from "react";
 
 const FlexComponent = ({ data }: { data: HarmonySection }) => {
   const mdxComponents = useMDXComponents({});
-  const { headerFont } = useFont();
 
   return (
     <div>
@@ -18,10 +16,7 @@ const FlexComponent = ({ data }: { data: HarmonySection }) => {
         className="container mx-auto lg:flex flex-col-reverse lg:flex-row items-center gap-8 md:gap-12 overflow-hidden"
       >
         <div className="flex-1 space-y-6">
-          <div
-            className="text-2xl text-neutral-800 dark:text-neutral-200 font-bold"
-            style={{ fontFamily: headerFont }}
-          >
+          <div className="text-2xl text-neutral-800 dark:text-neutral-200 font-bold">
             {data?.title && (
               <MDXRemote
                 {...(data.title as MDXRemoteSerializeResult)}

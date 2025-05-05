@@ -2,7 +2,6 @@ import { IdentityInUse, Mascot, Tagline } from "@/app/type";
 import { useMDXComponents, useMDXComponents1 } from "@/mdx-component";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { motion } from "framer-motion";
-import { useFont } from "@/hooks/FontProvider";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -16,7 +15,6 @@ const TaglineSection = ({
 }) => {
   const mdxComponents = useMDXComponents({});
   const mdxComponents1 = useMDXComponents1({});
-  const { headerFont } = useFont();
 
   return (
     <motion.div
@@ -30,10 +28,7 @@ const TaglineSection = ({
           variants={fadeInUp}
           className="space-y-4 p-4 bg-neutral-100 dark:bg-neutral-900 rounded-2xl"
         >
-          <div
-            className="text-2xl text-neutral-800 dark:text-neutral-200 font-bold"
-            style={{ fontFamily: headerFont }}
-          >
+          <div className="text-2xl text-neutral-800 dark:text-neutral-200 font-bold">
             {section.items.title && (
               <MDXRemote
                 {...(section.items.title as MDXRemoteSerializeResult)}

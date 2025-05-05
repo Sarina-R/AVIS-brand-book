@@ -77,7 +77,7 @@ const Page = () => {
             <BrandPrism
               key={section.type}
               section={section}
-              primaryColor={data.brand.primaryColor || "black"}
+              primaryColor={data.brand.color.primaryColor || "black"}
             />
           );
         case "tone_of_voice":
@@ -85,7 +85,7 @@ const Page = () => {
             <ToneOfVoiceSection
               key={section.type}
               section={section}
-              primaryColor={data.brand.primaryColor}
+              primaryColor={data.brand.color.primaryColor}
             />
           );
         case "tagline":
@@ -95,7 +95,7 @@ const Page = () => {
             <DesignPrinciplesSection
               key={section.type}
               section={section}
-              primaryColor={data.brand.primaryColor}
+              primaryColor={data.brand.color.primaryColor}
             />
           );
         case "logo":
@@ -115,7 +115,7 @@ const Page = () => {
             <ColorSection
               key={section.type}
               section={section}
-              primaryColor={data.brand.primaryColor}
+              primaryColor={data.brand.color.primaryColor}
             />
           );
         case "typography":

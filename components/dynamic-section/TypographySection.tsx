@@ -5,7 +5,6 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { Typography, TypographyPrinciplesSection } from "@/app/type";
 import { useMDXComponents, useMDXComponents1 } from "@/mdx-component";
-import { useFont } from "@/hooks/FontProvider";
 
 interface TypographySectionProps {
   section: Typography;
@@ -45,7 +44,6 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
   const [principlesSections, setPrinciplesSections] = useState<
     TypographyPrinciplesSection[]
   >([]);
-  const { headerFont } = useFont();
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
@@ -127,10 +125,7 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
     <section className="p-4 md:p-10 max-w-6xl mx-auto space-y-28 mt-12 capitalize">
       <div className="lg:flex md:space-x-8 space-y-10 lg:space-y-0 gap-32">
         <div className="flex-1 space-y-4 lg:sticky lg:top-15 h-full">
-          <div
-            style={{ fontFamily: headerFont }}
-            className="text-xl font-bold text-neutral-800 dark:text-neutral-200"
-          >
+          <div className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
             {mainTitle && (
               <MDXRemote {...mainTitle} components={mdxComponent1} />
             )}
@@ -176,10 +171,7 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
       <div className="space-y-12">
         <div className="lg:flex justify-between gap-32">
           {fontFeatureTitle && (
-            <div
-              style={{ fontFamily: headerFont }}
-              className="lg:sticky top-15 h-full text-xl font-bold text-neutral-800 dark:text-neutral-200"
-            >
+            <div className="lg:sticky top-15 h-full text-xl font-bold text-neutral-800 dark:text-neutral-200">
               <MDXRemote {...fontFeatureTitle} components={mdxComponent1} />
             </div>
           )}
@@ -219,10 +211,7 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
           </div>
           <div className="flex-1 text-sm text-neutral-700 dark:text-neutral-300 leading-6">
             {weightsTitle && (
-              <h2
-                style={{ fontFamily: headerFont }}
-                className="text-xl font-bold mb-4 text-neutral-800 dark:text-neutral-200"
-              >
+              <h2 className="text-xl font-bold mb-4 text-neutral-800 dark:text-neutral-200">
                 <MDXRemote {...weightsTitle} components={mdxComponent1} />
               </h2>
             )}
@@ -236,10 +225,7 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
       <div className="lg:space-y-16 space-y-10">
         {principlesTitle && (
           <div>
-            <h2
-              style={{ fontFamily: headerFont }}
-              className="text-2xl font-bold text-neutral-800 dark:text-neutral-200 pb-3"
-            >
+            <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-200 pb-3">
               <MDXRemote {...principlesTitle} components={mdxComponent1} />
             </h2>
             <div className="text-neutral-700 dark:text-neutral-300 leading-6">
@@ -262,10 +248,7 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
                   className="grid grid-cols-1 lg:grid-cols-3 items-start gap-8 lg:gap-16"
                 >
                   <div className={`${textCol} space-y-4`}>
-                    <h2
-                      style={{ fontFamily: headerFont }}
-                      className="text-2xl font-semibold text-neutral-800 dark:text-white"
-                    >
+                    <h2 className="text-2xl font-semibold text-neutral-800 dark:text-white">
                       <MDXRemote {...sec.subtitle} components={mdxComponent1} />
                     </h2>
                     <div className="text-neutral-600 dark:text-neutral-300 text-sm leading-6">

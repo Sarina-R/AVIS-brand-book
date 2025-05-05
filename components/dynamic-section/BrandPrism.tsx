@@ -3,7 +3,6 @@ import { useMDXComponents } from "@/mdx-component";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useFont } from "@/hooks/FontProvider";
 
 interface BrandPrismProps {
   section: BrandPrism;
@@ -59,7 +58,6 @@ const BrandManifesto = ({ section, primaryColor }: BrandPrismProps) => {
   const [activeSection, setActiveSection] = useState<string | null>(
     brandPrismItems.length > 0 ? brandPrismItems[0].title : null
   );
-  const { headerFont } = useFont();
 
   const mdxComponents = useMDXComponents({});
 
@@ -158,7 +156,6 @@ const BrandManifesto = ({ section, primaryColor }: BrandPrismProps) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  style={{ fontFamily: headerFont }}
                 >
                   {item.title}
                 </motion.text>

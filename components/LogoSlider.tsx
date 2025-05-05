@@ -9,7 +9,6 @@ import { useMDXComponents1 } from "@/mdx-component";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { motion, AnimatePresence } from "framer-motion";
-import { useFont } from "@/hooks/FontProvider";
 
 interface LogoSectionProps {
   versions: LogoVersion[];
@@ -19,7 +18,6 @@ const LogoSlider = ({ versions }: LogoSectionProps) => {
   const [index, setIndex] = useState(0);
   const [mdxSources, setMdxSources] = useState<MDXRemoteSerializeResult[]>([]);
   const mdxComponents1 = useMDXComponents1({});
-  const { headerFont } = useFont();
 
   const next = () => setIndex((prev) => (prev + 1) % versions.length);
   const prev = () =>
@@ -93,7 +91,6 @@ const LogoSlider = ({ versions }: LogoSectionProps) => {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          style={{ fontFamily: headerFont }}
         >
           Versions
         </motion.h2>

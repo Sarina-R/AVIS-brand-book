@@ -17,7 +17,6 @@ export interface Font {
 
 export interface Brand {
   name: string;
-  primaryColor: string;
   monoLogo?: string;
   monoLogoDark?: string;
   logo: string;

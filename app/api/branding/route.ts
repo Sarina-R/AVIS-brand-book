@@ -84,8 +84,8 @@ const data = {
       desc: "Font scale, styles, and usage guidance powered by Geist.",
     },
     {
-      title: "Design Principle",
-      href: "/grid",
+      title: "Design Principles",
+      href: "/design-principles",
       type: "image",
       lightImg:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis//design.png",
@@ -104,7 +104,7 @@ const data = {
     {
       type: "overview",
       title: "Brand Introduction",
-      description: "Iran FIRA Open Competition 2025 - **IRAN, TEHRAN**",
+      description: "AVIS",
       pattern:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//18.png",
       img: "https://iran.firaworldcup.org/wp-content/uploads/2024/12/IRAN-FIRA-2025-1-1448x2048.png",
@@ -112,7 +112,7 @@ const data = {
       items: {
         group: "introduction",
         title: "overview",
-        desc: "Welcome to the **Iran FIRA Open Competition**, where innovation meets excellence in robotics and artificial intelligence. This prestigious competition will take place at the Tehran International Exhibition Center, a venue that embodies Iran’s commitment to hosting world-class events and fostering technological progress.",
+        desc: "Welcome to the **AVIS**, where innovation meets excellence in robotics and artificial intelligence. This prestigious competition will take place at the Tehran International Exhibition Center, a venue that embodies Iran’s commitment to hosting world-class events and fostering technological progress.",
         img: "",
       },
 
@@ -121,7 +121,7 @@ const data = {
     {
       type: "statement",
       title: "Statement Section",
-      description: "Iran FIRA Open Competition 2025 - IRAN, TEHRAN",
+      description: "AVIS - IRAN, TEHRAN",
       pattern:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/FIRA%20CUP%202025%20BRAND%20BOOK%20(7).svg",
       img: "",
@@ -130,7 +130,7 @@ const data = {
         MDXComponent: BrandIdentity,
         title: "What **leads** us to the idea of dynamic identity:",
         items: ["Vision", "Mission", "Target"],
-        desc: `Iran FIRA Open Competition 2025 represents global innovation in robotics and AI, uniting
+        desc: `AVIS represents global innovation in robotics and AI, uniting
               visionaries to challenge boundaries and inspire progress. It’s a platform where
               creativity meets technology, shaping the future of robotics.`,
       },
@@ -208,7 +208,7 @@ const data = {
             svg: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/icons/Copy%20of%20FIRA%20CANADA%20BRAND%20BOOK%20(2).png",
             title: "Trustworthy",
             description:
-              "**FIRA CUP** demonstrates *trustworthiness* and *authority* in all our communications.",
+              "**AVIS** demonstrates *trustworthiness* and *authority* in all our communications.",
           },
           {
             id: "1002",
@@ -252,9 +252,9 @@ const data = {
         tabsContent: [
           {
             title: "Design Strategics",
-            description: `**FIRA Iran strategic design** is a comprehensive travel solution. It always aims to optimize the journey and offer a seamless experience across all stages.
+            description: `**AVIS strategic design** is a comprehensive travel solution. It always aims to optimize the journey and offer a seamless experience across all stages.
                           This mental model in strategic design helps the brand to evolve and emerge continuously.
-                          Strategic design in FIRA Iran is in service of communication and business growth.
+                          Strategic design in AVIS is in service of communication and business growth.
                           The foundation of strategic design stems from upstream strategies and loops through feedback and iteration to complete and refine one another.
               `,
             svg: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/icons/Copy%20of%20FIRA%20CANADA%20BRAND%20BOOK%20(3).png",
@@ -278,10 +278,10 @@ const data = {
         MDXComponent: "",
         MDXComponentForLogo: "",
         title: "**Brand** Identity",
-        desc: "To inspire and empower the global robotics community by **creating a dynamic platform** for innovation, collaboration, and excellence. Iran FIRA Open Competition 2025 is committed to advancing technology, nurturing young talent, and pushing the boundaries of what robotics",
+        desc: "To inspire and empower the global robotics community by **creating a dynamic platform** for innovation, collaboration, and excellence. AVIS is committed to advancing technology, nurturing young talent, and pushing the boundaries of what robotics",
         download:
           "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//6042030147017755542.jpg",
-        downloadBtnText: "Download Iran FIRA Open Competition 2025 Tehran Logo",
+        downloadBtnText: "Download AVIS Tehran Logo",
         logoVersion: [
           {
             id: 1,
@@ -303,7 +303,7 @@ const data = {
           {
             id: 3,
             name: "Mono",
-            text: "We use the monogram version in FIRA Iran media, such as the brand's social media, website and app icons, and video watermarks. We can also use this version in other brand communications where the brand name does not need to be mentioned due to familiarity with the audience.",
+            text: "We use the monogram version in AVIS media, such as the brand's social media, website and app icons, and video watermarks. We can also use this version in other brand communications where the brand name does not need to be mentioned due to familiarity with the audience.",
             svg: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//Copy%20of%20FIRA%20CUP%202025%20BRAND%20BOOK%20(41).png",
             darkSvg:
               "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//dark-mono-logo.png",
@@ -311,11 +311,11 @@ const data = {
         ],
         inBackgroundSection: {
           listItems: [
-            "We use the FIRA Iran logo on a white background, only in the primary color.",
-            "We use the FIRA Iran logo on a black background, only in the primary color.",
-            "We use the FIRA Iran logo on a yellow background, only in solid black.",
-            "We use the FIRA Iran logo on neutral backgrounds (permitted codes in the color palette), only in solid black or white.",
-            "The use of the FIRA Iran logo on other colored backgrounds is not permitted.",
+            "We use the AVIS logo on a white background, only in the primary color.",
+            "We use the AVIS logo on a black background, only in the primary color.",
+            "We use the AVIS logo on a yellow background, only in solid black.",
+            "We use the AVIS logo on neutral backgrounds (permitted codes in the color palette), only in solid black or white.",
+            "The use of the AVIS logo on other colored backgrounds is not permitted.",
           ],
           inBackgroundComponent: [
             {
@@ -347,7 +347,7 @@ const data = {
         },
         alongWithOthers: {
           title: "Use it alongside other brand logos",
-          desc: "When using the FIRA Iran logo next to other brand logos, here’s the deal: if the second logo is vertical, go with the vertical version of the FIRA Iran logo; if it’s horizontal, stick with the horizontal FIRA Iran one. To keep things balanced, make sure the height of FIRA Iran’s logo matches the graphic part of the second logo in both cases. Now, if the second logo is just a logotype (no fancy graphics), use the horizontal FIRA Iran logo. In that case, the height of both logotypes should be the same.<br/>Always slap the FIRA Iran logo on the left and above the second logo. Putting it on the right or below other logos? Nope, not allowed.",
+          desc: "When using the AVIS logo next to other brand logos, here’s the deal: if the second logo is vertical, go with the vertical version of the AVIS logo; if it’s horizontal, stick with the horizontal AVIS one. To keep things balanced, make sure the height of AVIS’s logo matches the graphic part of the second logo in both cases. Now, if the second logo is just a logotype (no fancy graphics), use the horizontal AVIS logo. In that case, the height of both logotypes should be the same.<br/>Always slap the AVIS logo on the left and above the second logo. Putting it on the right or below other logos? Nope, not allowed.",
           svg: [
             "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/co-branding/FIRA%20CUP%202025%20BRAND%20BOOK%20(12).svg",
             "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/co-branding/6.svg",
@@ -392,7 +392,7 @@ const data = {
         palette: {
           title: "The Main Palette",
           description:
-            "FIRA Iran’s main palette consists of yellow, black, white, and blue. In this palette, yellow is the central color. We use black and white as complementary colors alongside yellow. We also use blue in the call to action buttons.",
+            "AVIS’s main palette consists of yellow, black, white, and blue. In this palette, yellow is the central color. We use black and white as complementary colors alongside yellow. We also use blue in the call to action buttons.",
           colors: {
             primary: {
               id: 1001,
@@ -549,7 +549,7 @@ const data = {
         desc: "We use a custom font for **readability** and **elegance** to enhance brand identity across all communication channels.",
         fontFeatureComponent: {
           title: "Font Features",
-          desc: "In FIRA Iran Font Design, in addition to the main features, we have foreseen a set of supplementary features that enrich the typography. These features include: ligatures, alternate forms, strokes, style sets, and text and tabular numbers.",
+          desc: "In AVIS Font Design, in addition to the main features, we have foreseen a set of supplementary features that enrich the typography. These features include: ligatures, alternate forms, strokes, style sets, and text and tabular numbers.",
           componentItems: [
             {
               text: "**Build** <br/> The Future",
@@ -577,12 +577,12 @@ const data = {
         typographyPrinciples: {
           title: "Basic Typography Principles",
           description:
-            "In typography, FIRA Iran follows two fundamental principles:",
+            "In typography, AVIS follows two fundamental principles:",
           section: [
             {
               subtitle: "Readability",
               content:
-                "Readability is a core principle of FIRA Iran’s typography. We organize all typographic elements—letter spacing, line spacing, and text alignment—so that the text is delivered to the reader in the clearest possible way.",
+                "Readability is a core principle of AVIS’s typography. We organize all typographic elements—letter spacing, line spacing, and text alignment—so that the text is delivered to the reader in the clearest possible way.",
               examples: [
                 {
                   status: "incorrect",
@@ -599,7 +599,7 @@ const data = {
             {
               subtitle: "Respecting Content Hierarchy",
               content:
-                "One of FIRA Iran's communication features is that its content always delivers priority and importance. In typography, we use characteristics like text size, weight, font, graphic elements, etc., to clearly communicate the hierarchy of different content layers to the audience.",
+                "One of AVIS's communication features is that its content always delivers priority and importance. In typography, we use characteristics like text size, weight, font, graphic elements, etc., to clearly communicate the hierarchy of different content layers to the audience.",
               examples: [
                 {
                   status: "incorrect",
@@ -638,7 +638,7 @@ const data = {
         },
         weights: {
           title: "Weights",
-          desc: `In designing the FIRA Iran font, in addition to the main features, we have foreseen a set of supplementary features that enrich the typography. These features include: ligatures, alternating forms, strokes, style sets, and text and tabular numbers.`,
+          desc: `In designing the AVIS font, in addition to the main features, we have foreseen a set of supplementary features that enrich the typography. These features include: ligatures, alternating forms, strokes, style sets, and text and tabular numbers.`,
           sampleText: "Some Sample Text",
         },
       },
@@ -652,7 +652,7 @@ const data = {
       img: "",
       items: {
         MDXComponent: IdentityInUse,
-        title: "Brand in Action: Iran FIRA Open Competition 2025",
+        title: "Brand in Action: AVIS",
       },
     },
   ],

@@ -2,7 +2,6 @@ import Image from "next/image";
 import { InBackgroundSection } from "@/app/type";
 import { motion } from "framer-motion";
 import clsx from "clsx";
-import { useFont } from "@/hooks/FontProvider";
 
 interface Props {
   data: InBackgroundSection;
@@ -37,8 +36,6 @@ const imageVariants = {
 };
 
 const LogoBackground = ({ data }: Props) => {
-  const { headerFont } = useFont();
-
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 lg:px-12 py-8">
       <motion.div
@@ -53,7 +50,6 @@ const LogoBackground = ({ data }: Props) => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          style={{ fontFamily: headerFont }}
         >
           In Background
         </motion.h2>

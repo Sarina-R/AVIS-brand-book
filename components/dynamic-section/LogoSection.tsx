@@ -11,7 +11,6 @@ import { motion } from "framer-motion";
 import LogoSlider from "../LogoSlider";
 import LogoBackground from "../LogoBG";
 import CoBrandingLogoSection from "../CoBrandingLogoSection";
-import { useFont } from "@/hooks/FontProvider";
 
 const LogoSection = ({
   section,
@@ -27,7 +26,6 @@ const LogoSection = ({
   const [mdxSource, setMdxSource] = useState<
     string | MDXRemoteSerializeResult
   >();
-  const { headerFont } = useFont();
 
   useEffect(() => {
     const serializedFunction = async () => {
@@ -116,10 +114,7 @@ const LogoSection = ({
         >
           <motion.div variants={fadeIn("down")} className="space-y-4">
             {section.items.title && (
-              <div
-                className="text-2xl font-semibold text-neutral-800 dark:text-neutral-200"
-                style={{ fontFamily: headerFont }}
-              >
+              <div className="text-2xl font-semibold text-neutral-800 dark:text-neutral-200">
                 <MDXRemote
                   {...(section.items.title as MDXRemoteSerializeResult)}
                   components={mdxComponents1}

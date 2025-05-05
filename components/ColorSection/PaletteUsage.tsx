@@ -3,9 +3,7 @@ import { MDXRemote } from "next-mdx-remote";
 import { useMDXComponents } from "@/mdx-component";
 import { Check, X } from "lucide-react";
 import { motion } from "framer-motion";
-import { useFont } from "@/hooks/FontProvider";
 
-// Animation Variants
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -33,7 +31,6 @@ const cardAnim = {
 
 const PaletteUsage = ({ usage }: { usage: PaletteUsageType }) => {
   const mdxComponents = useMDXComponents({});
-  const { headerFont } = useFont();
 
   return (
     <motion.div
@@ -46,7 +43,6 @@ const PaletteUsage = ({ usage }: { usage: PaletteUsageType }) => {
       <motion.h2
         variants={fadeUp}
         className="text-2xl text-neutral-800 dark:text-neutral-200 font-bold mb-4"
-        style={{ fontFamily: headerFont }}
       >
         {typeof usage.title === "string" ? (
           usage.title
@@ -67,10 +63,7 @@ const PaletteUsage = ({ usage }: { usage: PaletteUsageType }) => {
       </motion.p>
 
       <motion.div variants={fadeUp} className="mb-8">
-        <h3
-          className="text-lg font-semibold mb-4 text-neutral-800 dark:text-neutral-200"
-          style={{ fontFamily: headerFont }}
-        >
+        <h3 className="text-lg font-semibold mb-4 text-neutral-800 dark:text-neutral-200">
           Main Structure
         </h3>
         <ul className="list-disc pl-5 text-neutral-700 dark:text-neutral-300">
@@ -87,7 +80,6 @@ const PaletteUsage = ({ usage }: { usage: PaletteUsageType }) => {
         </ul>
       </motion.div>
 
-      {/* Usage Cards */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
         variants={staggerContainer}

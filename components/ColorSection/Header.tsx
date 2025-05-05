@@ -6,7 +6,6 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { Serialized } from "@/lib/serializeTextFields";
 import { useMDXComponents } from "@/mdx-component";
 import { motion, AnimatePresence } from "framer-motion";
-import { useFont } from "@/hooks/FontProvider";
 
 const textVariant = {
   hidden: { opacity: 0, y: 20 },
@@ -28,7 +27,6 @@ const Header = ({
 }) => {
   const mdxComponents = useMDXComponents({});
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const { headerFont } = useFont();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,7 +52,6 @@ const Header = ({
           viewport={{ once: true }}
           custom={0}
           className="text-2xl font-bold mb-4 text-neutral-800 dark:text-neutral-200"
-          style={{ fontFamily: headerFont }}
         >
           {serializedItems?.title && (
             <MDXRemote
