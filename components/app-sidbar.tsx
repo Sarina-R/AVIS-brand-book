@@ -16,7 +16,6 @@ import { Skeleton } from "./ui/skeleton";
 import { useEffect, useState } from "react";
 import { MenuGroup, MenuItem } from "@/app/type";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 
 type SidebarGroup = {
   label: string;
@@ -26,9 +25,6 @@ type SidebarGroup = {
 export function AppSidebar() {
   const { data, loading } = useData();
   const [groups, setGroups] = useState<SidebarGroup[]>([]);
-  const pathname = usePathname();
-  const locale = pathname.split("/")[1] || "IR";
-  const isRootPath = pathname === "/";
 
   useEffect(() => {
     if (!data || !data.menu) return;
@@ -44,7 +40,7 @@ export function AppSidebar() {
   }, [data]);
 
   return (
-    <Sidebar className="py-4 border">
+    <Sidebar className="border">
       {loading ? (
         <SidebarContent>
           <div className="px-4 mb-6">
@@ -70,14 +66,14 @@ export function AppSidebar() {
         </SidebarContent>
       ) : (
         <>
-          {(data?.brand.logo || data?.brand.darkLogo) && !isRootPath && (
-            <>
+          {(data?.brand.logo || data?.brand.darkLogo) && (
+            <div className="h-[53.8px] border-b flex justify-start items-center">
               <Image
                 src={data?.brand.logo || ""}
                 width={120}
                 height={40}
                 alt={data?.brand.name || ""}
-                className="object-contain px-4 w-full block dark:hidden"
+                className="object-contain block dark:hidden max-h-[30px] m-auto"
                 priority
               />
               <Image
@@ -85,13 +81,14 @@ export function AppSidebar() {
                 width={120}
                 height={40}
                 alt={data?.brand.name || ""}
-                className="object-contain px-4 w-full hidden dark:block"
+                className="object-contain hidden dark:block max-h-[30px] m-auto"
                 priority
               />
-            </>
+              <p className="text-xs pr-4">AVIS Design System</p>
+            </div>
           )}
 
-          <SidebarContent>
+          <SidebarContent className="py-4">
             {groups.map((group, index) => (
               <SidebarGroup key={index} className="p-3 px-6">
                 <SidebarGroupLabel className="font-light">
@@ -102,7 +99,7 @@ export function AppSidebar() {
                     {group.items.map((item) => (
                       <SidebarMenuItem key={item.id}>
                         <SidebarMenuButton asChild>
-                          <Link href={`/${locale}/${item.id}`}>
+                          <Link href={`/${item.id}`}>
                             <span>{item.title}</span>
                           </Link>
                         </SidebarMenuButton>
