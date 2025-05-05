@@ -43,7 +43,6 @@ export default function RootLayout({
   }
 
   const currentItemIndex = menuItems.findIndex((item) => item.id === itemId);
-  const currentItem = menuItems[currentItemIndex];
 
   let sectionStartIndex = 0;
   let currentSectionIndex = -1;
