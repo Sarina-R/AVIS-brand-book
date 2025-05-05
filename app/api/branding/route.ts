@@ -2,8 +2,7 @@ import { NextResponse } from "next/server";
 
 const data = {
   brand: {
-    name: "FIRA RoboWorld Cup 2025 Tehran",
-    primaryColor: "#01acec",
+    name: "AVIS Brand Book",
     monoLogo:
       "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono.png",
     monoLogoDark:
@@ -12,9 +11,15 @@ const data = {
     darkLogo:
       "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-dark.png",
     font: {
-      name: "Heebo",
-      weights: [400, 500, 700, 900],
+      name: "Geist",
+      weights: [300, 400, 700, 900],
       subsets: ["latin", "latin-ext"],
+    },
+    color: {
+      primaryColor: "#000000",
+      secondaryColor: "#FFFFFF",
+      actionColor: "#737373",
+      otherColors: ["#00c950", "#7ccf00", "#00a6f4", "#f0b100", "#fb2c36"],
     },
   },
   menu: {
@@ -29,11 +34,7 @@ const data = {
     },
     "Verbal identity": {
       items: [
-        {
-          id: "tone-of-voice",
-          title: "Tone Of Voice",
-          type: "tone_of_voice",
-        },
+        { id: "tone-of-voice", title: "Tone Of Voice", type: "tone_of_voice" },
         { id: "tagline", title: "Tagline", type: "tagline" },
       ],
     },
@@ -56,6 +57,40 @@ const data = {
       ],
     },
   },
+  visualSectionCards: [
+    {
+      title: "Logo",
+      href: "/logo",
+      type: "image",
+      lightImg:
+        "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis.png",
+      darkImg:
+        "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-dark.png",
+      desc: "Both light and dark versions of the AVIS logo, used across platforms.",
+    },
+    {
+      title: "Typography",
+      href: "https://vercel.com/font",
+      type: "component",
+      desc: "Font scale, styles, and usage guidance powered by Geist.",
+    },
+    {
+      title: "Design Principle",
+      href: "/grid",
+      type: "image",
+      lightImg:
+        "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis//design.png",
+      darkImg:
+        "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis//design.-dark.png",
+      desc: "Say hi to our friendly brand grid — the visual face of AVIS.",
+    },
+    {
+      title: "Color Palette",
+      href: "/color",
+      type: "component",
+      desc: "Explore AVIS’s carefully crafted brand colors in both light and dark modes.",
+    },
+  ],
   sections: [
     {
       type: "overview",
@@ -68,10 +103,9 @@ const data = {
       items: {
         group: "introduction",
         title: "overview",
-        desc: "Welcome to the brand book of the Federation of International Robot Sports Association (FIRA). As the leading global organization dedicated to the promotion and development of robot sports, FIRA stands at the forefront of innovation, competition, and education in this exciting field.",
+        desc: "Welcome to the brand book of the Federation of International Robot Sports Association (FIRA). As the leading global organization dedicated to the promotion and development of robot sports, AVIS stands at the forefront of innovation, competition, and education in this exciting field.",
         img: "",
       },
-
       style: 1,
     },
   ],

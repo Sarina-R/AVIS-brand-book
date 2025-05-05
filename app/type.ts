@@ -1,6 +1,13 @@
 import { MDXRemoteSerializeResult } from "next-mdx-remote/rsc";
 
-// Brand font info
+// Brand
+export interface Color {
+  primaryColor: string;
+  secondaryColor: string;
+  actionColor: string;
+  otherColors: string[];
+}
+
 export interface Font {
   name: string;
   headers?: string;
@@ -8,7 +15,6 @@ export interface Font {
   subsets?: string[];
 }
 
-// Brand section
 export interface Brand {
   name: string;
   primaryColor: string;
@@ -17,9 +23,10 @@ export interface Brand {
   logo: string;
   darkLogo: string;
   font: Font;
+  color: Color;
 }
 
-// Menu structure
+// Menu
 export interface MenuItem {
   id: string;
   title: string;
@@ -34,7 +41,17 @@ export interface Menu {
   [key: string]: MenuGroup;
 }
 
-// Section item details
+// Home page
+export interface HomePageSection {
+  title: string;
+  href?: string;
+  type?: string;
+  desc: string;
+  lightImg?: string;
+  darkImg?: string;
+}
+
+// overview
 export interface OverviewItems {
   MDXComponent?: string | MDXRemoteSerializeResult;
   group?: string;
@@ -44,7 +61,6 @@ export interface OverviewItems {
   content?: [];
 }
 
-// Section structure
 export interface Overview {
   type: string;
   title: string | MDXRemoteSerializeResult;
@@ -56,11 +72,13 @@ export interface Overview {
   style: number;
 }
 
+// section
 export type Section = Overview;
 
-// Final response structure
+// ApiResponse
 export interface ApiResponse {
   brand: Brand;
   menu: Menu;
+  visualSectionCards: HomePageSection[];
   sections: Section[];
 }
