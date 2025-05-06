@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Color, ColorItems } from "@/app/type";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { Serialized } from "@/lib/serializeTextFields";
@@ -16,26 +16,99 @@ const textVariant = {
   }),
 };
 
+const BrandShowcaseComponent = ({
+  primaryColor,
+  secondaryColor,
+  actionColor,
+}: {
+  primaryColor: string;
+  secondaryColor: string;
+  actionColor: string;
+}) => {
+  const [hoveredColor, setHoveredColor] = useState<string | null>(null);
+
+  const colors = [
+    {
+      name: "Primary",
+      hex: primaryColor,
+    },
+    {
+      name: "Secondary",
+      hex: secondaryColor,
+    },
+    // {
+    //   name: "Action",
+    //   hex: actionColor,
+    // },
+  ];
+
+  return (
+    <div className="relative w-full h-full rounded-3xl overflow-hidden bg-black dark:bg-white">
+      <motion.div
+        className="absolute inset-0"
+        initial={{ opacity: 0.8 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+      />
+
+      <div className="absolute inset-0 flex items-center justify-center neutral-2 gap-4 p-6">
+        {colors.map((color, index) => (
+          <motion.div
+            key={color.name}
+            className="relative w-20 h-20 rounded-full cursor-pointer"
+            style={{ backgroundColor: color.hex, border: "1px solid #e5e5e5" }}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+            whileHover={{ scale: 1.2, boxShadow: `0 0 20px ${color.hex}` }}
+            onHoverStart={() => setHoveredColor(color.hex)}
+            onHoverEnd={() => setHoveredColor(null)}
+          >
+            <AnimatePresence>
+              {hoveredColor === color.hex && (
+                <motion.div
+                  className="absolute -top-12 left-1/2 -translate-x-1/2 bg-neutral-800 text-white text-xs px-3 py-1 rounded-lg shadow-lg"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span>
+                    {color.name}: {color.hex}
+                  </span>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        ))}
+      </div>
+
+      <motion.div
+        className="absolute bottom-4 left-4 text-white dark:text-black text-lg font-bold"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+      >
+        Modern. Bold. Timeless.
+      </motion.div>
+    </div>
+  );
+};
+
 const Header = ({
   serializedItems,
   section,
   primaryColor,
+  secondaryColor,
+  actionColor,
 }: {
   serializedItems: Serialized<ColorItems | undefined>;
   section: Color;
   primaryColor: string;
+  secondaryColor: string;
+  actionColor: string;
 }) => {
   const mdxComponents = useMDXComponents({});
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === section.items.img.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [section.items.img.length]);
 
   return (
     <motion.div
@@ -85,94 +158,10 @@ const Header = ({
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative flex-1 h-72 rounded-3xl overflow-hidden"
       >
-        <AnimatePresence mode="wait">
-          {section.items.img.map((imgSrc, index) =>
-            index === currentImageIndex ? (
-              <motion.img
-                key={imgSrc}
-                src={imgSrc}
-                alt={`Slide ${index + 1}`}
-                initial={{ opacity: 0, scale: 1.02 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.02 }}
-                transition={{ duration: 1 }}
-                className="absolute w-full h-full object-cover object-center"
-              />
-            ) : null
-          )}
-        </AnimatePresence>
-
-        <svg
-          className="absolute left-[-5rem] bottom-[-6rem] z-10"
-          width="300"
-          height="300"
-          viewBox="0 0 300 300"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M300 300C300 134.314 165.686 0 0 0V300H300Z"
-            fill={primaryColor}
-          />
-          <path
-            d="M300 300C300 134.314 165.686 0 0 0"
-            stroke="#FFFFFF"
-            strokeWidth="2"
-            strokeOpacity="0.8"
-          />
-          <path
-            d="M280 280C280 149.668 150.332 20 0 20"
-            stroke="#FFFFFF"
-            strokeWidth="2"
-            strokeOpacity="0.6"
-          />
-          <path
-            d="M260 260C260 165.022 134.978 40 0 40"
-            stroke="#FFFFFF"
-            strokeWidth="2"
-            strokeOpacity="0.4"
-          />
-        </svg>
-        <svg
-          className="absolute right-[-5rem] top-[-6rem] z-10 rotate-180"
-          width="300"
-          height="300"
-          viewBox="0 0 300 300"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M300 300C300 134.314 165.686 0 0 0V300H300Z"
-            fill={primaryColor}
-          />
-          <path
-            d="M300 300C300 134.314 165.686 0 0 0"
-            stroke="#FFFFFF"
-            strokeWidth="2"
-            strokeOpacity="0.8"
-          />
-          <path
-            d="M280 280C280 149.668 150.332 20 0 20"
-            stroke="#FFFFFF"
-            strokeWidth="2"
-            strokeOpacity="0.6"
-          />
-          <path
-            d="M260 260C260 165.022 134.978 40 0 40"
-            stroke="#FFFFFF"
-            strokeWidth="2"
-            strokeOpacity="0.4"
-          />
-        </svg>
-
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: `linear-gradient(to top right,${primaryColor} , transparent)`,
-            zIndex: 3,
-          }}
-          className="opacity-30"
+        <BrandShowcaseComponent
+          primaryColor={primaryColor}
+          secondaryColor={secondaryColor}
+          actionColor={actionColor}
         />
       </motion.div>
     </motion.div>

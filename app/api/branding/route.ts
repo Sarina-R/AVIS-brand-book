@@ -28,7 +28,7 @@ const data = {
       primaryColor: "#000000",
       secondaryColor: "#FFFFFF",
       actionColor: "#737373",
-      otherColors: ["#00c950", "#7ccf00", "#00a6f4", "#f0b100", "#fb2c36"],
+      otherColors: ["#00c950", "#00FF85", "#00a6f4", "#f0b100", "#fb2c36"],
     },
   },
   menu: {
@@ -55,7 +55,6 @@ const data = {
           type: "design_principles",
         },
         { id: "logo", title: "Logo", type: "logo" },
-        { id: "mascot", title: "Mascot", type: "mascot" },
         { id: "color", title: "Color", type: "color" },
         { id: "typography", title: "Typography", type: "typography" },
         {
@@ -112,7 +111,7 @@ const data = {
       items: {
         group: "introduction",
         title: "overview",
-        desc: "Welcome to the **AVIS**, where innovation meets excellence in robotics and artificial intelligence. This prestigious competition will take place at the Tehran International Exhibition Center, a venue that embodies Iran’s commitment to hosting world-class events and fostering technological progress.",
+        desc: "Welcome to the **AVIS**, where innovation meets excellence in robotics and artificial intelligence. This prestigious competition will take place at the International Exhibition Center, a venue that embodies Iran’s commitment to hosting world-class events and fostering technological progress.",
         img: "",
       },
 
@@ -121,7 +120,7 @@ const data = {
     {
       type: "statement",
       title: "Statement Section",
-      description: "AVIS - IRAN, TEHRAN",
+      description: "AVIS - IRAN,",
       pattern:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/FIRA%20CUP%202025%20BRAND%20BOOK%20(7).svg",
       img: "",
@@ -280,68 +279,39 @@ const data = {
         title: "**Brand** Identity",
         desc: "To inspire and empower the global robotics community by **creating a dynamic platform** for innovation, collaboration, and excellence. AVIS is committed to advancing technology, nurturing young talent, and pushing the boundaries of what robotics",
         download:
-          "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//6042030147017755542.jpg",
-        downloadBtnText: "Download AVIS Tehran Logo",
+          "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis.png",
+        downloadBtnText: "Download AVIS Logo",
         logoVersion: [
           {
             id: 1,
             name: "Horizontal logo",
             text: "Priority is given to use the horizontal version of the logo.",
-            svg: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//logo.svg",
+            svg: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis.png",
             darkSvg:
-              "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//dark-logo.png",
+              "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-dark.png",
           },
-          {
-            id: 2,
-            name: "Vertical logo",
-            text: "We use the vertical logo in situations where there is not enough space to use the vertical version or in media where the size ratio is horizontal.",
-            svg: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//vertical-logo.png",
-            darkSvg:
-              "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//dark-vertical-logo.png",
-          },
-
           {
             id: 3,
             name: "Mono",
             text: "We use the monogram version in AVIS media, such as the brand's social media, website and app icons, and video watermarks. We can also use this version in other brand communications where the brand name does not need to be mentioned due to familiarity with the audience.",
-            svg: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//Copy%20of%20FIRA%20CUP%202025%20BRAND%20BOOK%20(41).png",
+            svg: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono.png",
             darkSvg:
               "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//dark-mono-logo.png",
           },
         ],
         inBackgroundSection: {
           listItems: [
-            "We use the AVIS logo on a white background, only in the primary color.",
-            "We use the AVIS logo on a black background, only in the primary color.",
-            "We use the AVIS logo on a yellow background, only in solid black.",
-            "We use the AVIS logo on neutral backgrounds (permitted codes in the color palette), only in solid black or white.",
-            "The use of the AVIS logo on other colored backgrounds is not permitted.",
+            "We use the AVIS logo on a white background, only in the solid black.",
+            "We use the AVIS logo on a black background, only in the solid white.",
           ],
           inBackgroundComponent: [
             {
               colorBg: "#FFFFFF",
-              logo: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//vertical-logo.png",
+              logo: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis.png",
             },
             {
               colorBg: "#000000",
-              logo: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//dark-vertical-logo.png",
-            },
-            {
-              colorBg: "#FDB813",
-              logo: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//vertical-logo.png",
-            },
-            {
-              colorBg: "#D3D3D3",
-              logo: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//vertical-logo.png",
-            },
-            {
-              colorBg: "#808080",
-              logo: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//dark-vertical-logo.png",
-            },
-            {
-              imgBg:
-                "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//image.jpg",
-              logo: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//dark-vertical-logo.png",
+              logo: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-dark.png",
             },
           ],
         },
@@ -361,128 +331,93 @@ const data = {
       style: 1,
     },
     {
-      type: "mascot",
-      title: "Mascot",
-      description: "",
-      pattern:
-        "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/FIRA%20CUP%202025%20BRAND%20BOOK%20(7).svg",
-      img: "",
-      items: {
-        MDXComponent: Mascot,
-        // title: "Mascot",
-        // desc: "MascotMascotMascotMascotMascot",
-      },
-    },
-    {
       type: "color",
       title: "Color",
-      description: "",
+      description:
+        "Our brand color palette is inspired by the sleek, minimalist aesthetic of Vercel and Geist, emphasizing a clean black and white foundation with strategic accents for impact.",
       pattern:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/FIRA%20CUP%202025%20BRAND%20BOOK%20(7).svg",
       img: "",
       items: {
         MDXComponent: "",
         title: "Color of Our Brand",
-        desc: `Our color palette draws inspiration from nature, resulting in a fresh and vibrant aesthetic. It is imperative to apply these colors consistently across all platforms to uphold brand cohesion.`,
+        desc: "Our color palette is rooted in the stark contrast of black and white, inspired by Vercel’s minimalist design ethos. This creates a timeless, professional look, with an optional accent color for emphasis. Consistent use across all platforms ensures brand recognition and cohesion.",
         img: [
-          "https://cdn.pixabay.com/photo/2025/03/31/15/18/mountains-9504950_640.jpg",
-          "https://gratisography.com/wp-content/uploads/2025/01/gratisography-dog-vacation-800x525.jpg",
-          "https://images.unsplash.com/photo-1593696954577-ab3d39317b97?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZyZWUlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D",
+          "https://images.unsplash.com/photo-1618005182380-5f8a4e2c7121?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3",
+          "https://images.unsplash.com/photo-1516321318423-3f1e7993b62c?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3",
+          "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3",
         ],
         palette: {
           title: "The Main Palette",
           description:
-            "AVIS’s main palette consists of yellow, black, white, and blue. In this palette, yellow is the central color. We use black and white as complementary colors alongside yellow. We also use blue in the call to action buttons.",
+            "The core palette is built on black and white, mirroring Vercel’s clean and modern aesthetic. An optional accent color, inspired by Geist’s subtle vibrancy, is used sparingly for calls to action or highlights.",
           colors: {
             primary: {
               id: 1001,
-              hex: "#FDB813",
-              hexColor: "#000000",
-              name: "Main Yellow",
-              shades: [
-                { id: 102, hex: "#FDC107", name: "Light Yellow" },
-                { id: 103, hex: "#FD9F06", name: "Medium Yellow" },
-                { id: 104, hex: "#FD8C05", name: "Dark Yellow" },
-              ],
-            },
-            // secondary: {
-            //   id: 2002,
-            //   hex: "#F7941D",
-            //   hexColor: "#000000",
-            //   name: "Main Orange",
-            //   shades: [
-            //     { id: 202, hex: "#F9A13A", name: "Light Orange" },
-            //     { id: 203, hex: "#F7870F", name: "Medium Orange" },
-            //     { id: 204, hex: "#D97718", name: "Dark Orange" },
-            //   ],
-            // },
-            action: {
-              id: 3003,
-              hex: "#0077DB",
-              hexColor: "#FFFFFF",
-              name: "Action Blue",
-              shades: [
-                { id: 302, hex: "#3391E5", name: "Light Blue" },
-                { id: 303, hex: "#0066B8", name: "Medium Blue" },
-                { id: 304, hex: "#005A9E", name: "Dark Blue" },
-              ],
-            },
-            complementary: {
-              id: 4004,
               hex: "#000000",
               hexColor: "#FFFFFF",
-              name: "Black",
+              name: "Brand Black",
               shades: [
-                // { id: 402, hex: "#525252", name: "neutral" },
-                { id: 403, hex: "#E6EBEA", name: "Medium neutral" },
-                { id: 404, hex: "#FFFFFF", name: "Light neutral" },
+                { id: 102, hex: "#1A1A1A", name: "Dark Gray" },
+                { id: 103, hex: "#333333", name: "Medium Gray" },
+                { id: 104, hex: "#4D4D4D", name: "Light Gray" },
+              ],
+            },
+            secondary: {
+              id: 2002,
+              hex: "#FFFFFF",
+              hexColor: "#000000",
+              name: "Brand White",
+              shades: [
+                { id: 202, hex: "#F5F5F5", name: "Off White" },
+                { id: 203, hex: "#E6E6E6", name: "Light Gray White" },
+                { id: 204, hex: "#D9D9D9", name: "Subtle Gray White" },
+              ],
+            },
+            action: {
+              id: 3003,
+              hex: "#00FF85",
+              hexColor: "#000000",
+              name: "Accent Green",
+              shades: [
+                { id: 302, hex: "#33FF99", name: "Light Green" },
+                { id: 303, hex: "#00CC66", name: "Medium Green" },
+                { id: 304, hex: "#00994C", name: "Dark Green" },
               ],
             },
           },
         },
         Harmony: {
-          title: "Harmony",
-          description: `There are three general combinations in using these colors:
-
-                - **Combination 1:** Yellow is the dominant color in the design, and we use white and black as complementary colors.  
-                - **Combination 2:** White is the dominant color, and we use yellow and black as complementary colors.  
-                - **Combination 3:** Black is the dominant color, and we use yellow and white as complementary colors.  
-
-                > **Note:** In brand communications, priority is given to using Combinations 1 and 2. Combination 3 is used sparingly and only in specific communication campaigns or environmental designs.
-                 `,
-          img: "https://cdn.alibaba.ir/h2/desktop/assets/brand-identity/color-ratios-aae20c6c.svg",
+          title: "Color Harmony",
+          description:
+            "The palette is designed for flexibility while maintaining a cohesive look. Three primary combinations guide usage:\n\n- **Combination 1:** Black as the dominant color, with white for contrast and green accents for emphasis.\n- **Combination 2:** White as the dominant color, with black for text and green for highlights.\n- **Combination 3:** Balanced use of black and white, with minimal green accents for subtle vibrancy.\n\n> **Note:** Combination 1 and 2 are prioritized for most brand applications. Combination 3 is reserved for specific campaigns or secondary materials.",
+          img: "https://cdn.vercel.app/brand/color-harmony-example.svg",
         },
         Gradient: {
-          title: "Harmony",
-          img: "https://cdn.alibaba.ir/h2/desktop/assets/brand-identity/color-gradient-8df2bb44.svg",
-          description: `There are three general combinations in using these colors:
-
-                - **Combination 1:** Yellow is the dominant color in the design, and we use white and black as complementary colors.  
-                - **Combination 2:** White is the dominant color, and we use yellow and black as complementary colors.  
-                - **Combination 3:** Black is the dominant color, and we use yellow and white as complementary colors.  
-
-                > **Note:** In brand communications, priority is given to using Combinations 1 and 2. Combination 3 is used sparingly and only in specific communication campaigns or environmental designs.
-                 `,
+          title: "Gradient Usage",
+          img: "https://cdn.vercel.app/brand/gradient-example.svg",
+          description:
+            "Gradients are used sparingly to add depth. Recommended gradients include:\n\n- **Black to Dark Gray:** For subtle background transitions.\n- **White to Light Gray:** For clean, modern overlays.\n- **Green to Dark Green:** For accent elements like buttons or highlights.\n\n> **Note:** Gradients should not overpower the primary black and white palette and are used only in digital or promotional materials.",
         },
         paletteUsage: {
           title: "Color Usage in Design",
           description:
-            "For better understanding, the color palette is used in the following ways.",
+            "The color palette is applied strategically to ensure clarity and brand consistency.",
           mainStructure: [
             {
               id: 5001,
               background: "#000000",
-              name: "White and yellow text on a black background",
+              name: "White or green text on a black background",
             },
             {
               id: 5002,
-              background: "#FDB813",
-              name: "Black text on a yellow background",
+              background: "#FFFFFF",
+              name: "Black or green text on a white background",
             },
             {
               id: 5003,
-              background: "#FFFFFF",
-              name: "Black text on a white background",
+              background: "#00FF85",
+              name: "Black text on a green background (for accents)",
             },
           ],
           usageGuidelines: {
@@ -490,14 +425,14 @@ const data = {
               {
                 id: 6003,
                 background: "#000000",
-                text: "#FDB813",
-                description: "Black background with yellow text",
+                text: "#FFFFFF",
+                description: "Black background with white text",
               },
               {
                 id: 7002,
                 background: "#000000",
-                text: "#FFFFFF",
-                description: "Black background with white text",
+                text: "#00FF85",
+                description: "Black background with green accent text",
               },
               {
                 id: 7003,
@@ -505,25 +440,26 @@ const data = {
                 text: "#000000",
                 description: "White background with black text",
               },
-              {
-                id: 7001,
-                background: "#FDB813",
-                text: "#000000",
-                description: "Yellow background with black text",
-              },
             ],
             incorrect: [
               {
+                id: 7001,
+                background: "#FFFFFF",
+                text: "#00FF85",
+                description: "White background with green accent text",
+              },
+              {
                 id: 6001,
-                background: "#FDB813",
+                background: "#00FF85",
                 text: "#FFFFFF",
-                description: "Yellow background with white text",
+                description: "Green background with white text (low contrast)",
               },
               {
                 id: 6002,
                 background: "#FFFFFF",
-                text: "#FDB813",
-                description: "White background with yellow text",
+                text: "#E6E6E6",
+                description:
+                  "White background with light gray text (poor readability)",
               },
             ],
           },

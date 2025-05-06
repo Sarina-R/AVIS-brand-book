@@ -72,6 +72,8 @@ const ColorSection = ({
           serializedItems={serializedItems}
           section={section}
           primaryColor={primaryColor}
+          secondaryColor={section.items.palette.colors.secondary.hex}
+          actionColor={section.items.palette.colors.action.hex}
         />
       </motion.div>
 
@@ -93,7 +95,13 @@ const ColorSection = ({
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInLeft}
         >
-          <FlexComponent data={serializedItems.Harmony} />
+          <FlexComponent
+            id="harmony"
+            primaryColor={primaryColor}
+            secondaryColor={section.items.palette.colors.secondary.hex}
+            actionColor={section.items.palette.colors.action.hex}
+            data={serializedItems.Harmony}
+          />
         </motion.div>
       )}
 
@@ -104,7 +112,13 @@ const ColorSection = ({
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInRight}
         >
-          <FlexComponent data={serializedItems.Gradient} />
+          <FlexComponent
+            id="gradient"
+            primaryColor={primaryColor}
+            secondaryColor={section.items.palette.colors.secondary.hex}
+            actionColor={section.items.palette.colors.action.hex}
+            data={serializedItems.Gradient}
+          />
         </motion.div>
       )}
 
