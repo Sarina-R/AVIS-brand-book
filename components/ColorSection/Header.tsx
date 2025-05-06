@@ -19,11 +19,11 @@ const textVariant = {
 const BrandShowcaseComponent = ({
   primaryColor,
   secondaryColor,
-  actionColor,
-}: {
+}: // actionColor,
+{
   primaryColor: string;
   secondaryColor: string;
-  actionColor: string;
+  // actionColor: string;
 }) => {
   const [hoveredColor, setHoveredColor] = useState<string | null>(null);
 
@@ -97,11 +97,10 @@ const BrandShowcaseComponent = ({
 
 const Header = ({
   serializedItems,
-  section,
   primaryColor,
   secondaryColor,
-  actionColor,
-}: {
+}: // actionColor,
+{
   serializedItems: Serialized<ColorItems | undefined>;
   section: Color;
   primaryColor: string;
@@ -161,7 +160,7 @@ const Header = ({
         <BrandShowcaseComponent
           primaryColor={primaryColor}
           secondaryColor={secondaryColor}
-          actionColor={actionColor}
+          // actionColor={actionColor}
         />
       </motion.div>
     </motion.div>
