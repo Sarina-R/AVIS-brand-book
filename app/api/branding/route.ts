@@ -4,7 +4,6 @@ import {
   Tagline,
   item2,
   ToneOfVoice,
-  Mascot,
   DesignPrinciples,
   IdentityInUse,
 } from "./mdx";
