@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { JSX, useEffect, useState } from "react";
 import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+// import { loadFull } from "tsparticles";
 import { Cpu, Rocket, Star, Zap, Code, Globe } from "lucide-react";
 
 // const particlesInit = async (main: any) => {
