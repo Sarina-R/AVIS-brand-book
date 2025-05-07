@@ -71,7 +71,7 @@ const Page = () => {
         case "overview":
           return <OverviewSection key={section.type} section={section} />;
         case "statement":
-          return <StatementSection key={section.type} section={section} />;
+          return <StatementSection key={section.type} />;
         case "brand_prism":
           return (
             <BrandPrism

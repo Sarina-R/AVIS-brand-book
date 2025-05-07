@@ -288,60 +288,44 @@ export const ToneOfVoiceG = `
 </div>
 `;
 
-export const ToneOfVoice = `<div className="w-full px-6 py-10 space-y-16">
-        <div className="space-y-6">
-          <h1 className="text-xl font-bold">Voice and Tone</h1>
-          <p className="text-neutral-700 dark:text-neutral-300 mx-auto leading-6">
-            Our brand voice combines professionalism and friendliness to
-            prioritize exceptional customer service. It remains adaptable to
-            different contexts and audiences.
-          </p>
-        </div>
-        
-      </div>
-      
-   <div className="min-h-[500px] py-10 px-6">
-      <div className="flex flex-col lg:flex-row justify-center items-center gap-10 max-w-6xl mx-auto">
-        <div className="relative flex-1 text-center">
-          <div className="bg-gradient-to-r p-8 transform lg:-skew-y-6 rounded-3xl border dark:bg-zinc-900">
-            <div className="transform lg:skew-y-6">
-              <div className="relative">
-                <img
-                  src="https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//Copy%20of%20FIRA%20CUP%202025%20BRAND%20BOOK%20(4).png"
-                  alt="Friendly Icon"
-                  className="w-24 h-24 rounded-full mx-auto mb-6 border-4 p-1"
-                />
-              </div>
-              <h6 className="text-3xl font-extrabold mb-4 tracking-wide glow-text">
-                Friendly
-              </h6>
-              <p className="text-neutral-700 dark:text-neutral-300 text-sm leading-6">
-                We endeavor to cultivate a hospitable and inclusive environment for our clients and partners, nurturing transparent communication and cooperative partnerships.
-              </p>
-            </div>
-          </div>
-        </div>
+export const ToneOfVoice = `<div className="w-full px-6 py-14 space-y-16">
+  <div className="text-center space-y-4 max-w-3xl mx-auto">
+    <h1 className="text-3xl font-bold tracking-tight">Tone of Voice</h1>
+    <p className="text-neutral-700 dark:text-neutral-300 leading-7">
+      At AVIS, our tone balances <strong>professionalism</strong> with <strong>approachability</strong>. We speak with clarity, purpose, and warmth—whether addressing tech partners, young engineers, or event attendees. Our voice adapts to its audience, but never loses its core: <em>trust, innovation, and respect</em>.
+    </p>
+  </div>
 
-        <div className="relative flex-1 text-center">
-          <div className="p-8 transform lg:skew-y-6 rounded-3xl border dark:bg-zinc-900">
-            <div className="transform lg:-skew-y-6">
-              <div className="relative">
-                <img
-                  src="https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//Copy%20of%20FIRA%20CUP%202025%20BRAND%20BOOK%20(5).png"
-                  alt="Professional Icon"
-                  className="w-24 h-24 rounded-full mx-auto mb-6 border-4"
-                />
-              </div>
-              <h6 className="text-3xl font-extrabold mb-4 tracking-wide glow-text">
-                Professional
-              </h6>
-              <p className="text-neutral-700 dark:text-neutral-300 text-sm leading-6">
-                FIRA CUP upholds a professional and formal tone in all communications, demonstrating our dedication to excellence and dependability.
-              </p>
-            </div>
-          </div>
-        </div>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+    
+    <div className="relative bg-gradient-to-br from-zinc-100 to-white dark:from-zinc-900 dark:to-zinc-800 p-8 rounded-3xl shadow-md border hover:scale-[1.02] transition-all duration-300">
+      <div className="text-center">
+        <img
+          src="https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/icons/Copy%20of%20FIRA%20CANADA%20BRAND%20BOOK%20(2).png"
+          alt="Trustworthy Icon"
+          className="w-20 h-20 mx-auto mb-5 rounded-full border-4"
+        />
+        <h3 className="text-2xl font-semibold mb-2">Trustworthy</h3>
+        <p className="text-neutral-600 dark:text-neutral-300 text-sm leading-6">
+          <strong>AVIS</strong> communicates with integrity and transparency, ensuring our audience feels secure in our words, actions, and innovations.
+        </p>
       </div>
+    </div>
+
+    <div className="relative bg-gradient-to-br from-zinc-100 to-white dark:from-zinc-900 dark:to-zinc-800 p-8 rounded-3xl shadow-md border hover:scale-[1.02] transition-all duration-300">
+      <div className="text-center">
+        <img
+          src="https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/icons/Copy%20of%20FIRA%20CANADA%20BRAND%20BOOK%20(1).png"
+          alt="Innovative Icon"
+          className="w-20 h-20 mx-auto mb-5 rounded-full border-4"
+        />
+        <h3 className="text-2xl font-semibold mb-2">Innovative</h3>
+        <p className="text-neutral-600 dark:text-neutral-300 text-sm leading-6">
+          We bring energy and originality to every message—constantly pushing the boundaries of what’s possible in robotics and education.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>`;
 
 export const ToneOfVoiceCA = `

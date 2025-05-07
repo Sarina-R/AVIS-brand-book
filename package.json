@@ -31,13 +31,15 @@
     "polished": "^4.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-tsparticles": "^2.12.2",
     "sass": "^1.87.0",
     "shadcn": "^2.5.0",
     "sidebar": "^1.0.2",
     "skeleton": "^1.0.0",
     "swiper": "^11.2.6",
     "tabs": "^0.2.0",
-    "tailwind-merge": "^3.2.0"
+    "tailwind-merge": "^3.2.0",
+    "tsparticles": "^3.8.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
