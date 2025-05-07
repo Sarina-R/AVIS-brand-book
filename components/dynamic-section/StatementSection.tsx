@@ -6,9 +6,9 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { Cpu, Rocket, Star, Zap, Code, Globe } from "lucide-react";
 
-const particlesInit = async (main: any) => {
-  await loadFull(main);
-};
+// const particlesInit = async (main: any) => {
+//   await loadFull(main);
+// };
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -75,7 +75,7 @@ export default function StatementSection() {
       {isMounted && (
         <Particles
           id="tsparticles"
-          init={particlesInit}
+          // init={particlesInit}
           options={{
             background: { color: { value: "transparent" } },
             fpsLimit: 120,
