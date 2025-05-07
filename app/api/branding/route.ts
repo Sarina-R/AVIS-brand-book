@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import {
   BrandIdentity,
   Tagline,
-  item2,
   ToneOfVoice,
   DesignPrinciples,
   IdentityInUse,
@@ -141,52 +140,51 @@ const data = {
       description: "",
       pattern:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/FIRA%20CUP%202025%20BRAND%20BOOK%20(7).svg",
-      img: "",
-      // video: "https://files-us-east-1.t-cdn.net/files/1GG2rmxcOLAUjnt5zTqoY",
+      img: "https://avisengine.com/assets/img/logo.png",
       items: {
-        MDXComponent: item2,
+        MDXComponent:
+          "A clear, human-friendly articulation of the essence behind Avis Engine’s brand identity.",
         title: "What **leads** us to the idea of dynamic identity:",
-        desc: `Today, on what is always a "first day," we have embarked on a new path to expand the journey from the trilogy of "going, staying, and returning" to a broader concept, as vast as our worlds full of differences. As always, we want to be companions on a journey that extends from the realm of imagination to the review of sweet memories.`,
+        desc: 'Today, on what is always a "first day," we have embarked on a new path to expand the journey from the trilogy of "going, staying, and returning" to a broader concept, as vast as our worlds full of differences. As always, we want to be companions on a journey that extends from the realm of imagination to the review of sweet memories.',
         prismBrand: [
           {
             title: "Physique",
             key: "physique",
             description:
-              "Physique describes the physical characteristics of your brand—that is, everything your customers can visually perceive about you. Logo, style guide, iconography, color palette, and the presentation of the product itself all go into this category.",
+              "Minimalist, modern, and purposeful—our visual identity is rooted in clarity and trust. The black-and-white logo, free of distractions, speaks to our commitment to transparency and technological precision. It’s a symbol of confidence and forward-thinking, designed not just to be seen, but to be remembered. Every detail, from our event environments to digital touchpoints, reflects a balance of simplicity and innovation that resonates with engineers, educators, and future builders.",
           },
           {
             title: "Personality",
             key: "personality",
             description:
-              "If physique is the face of your brand, personality is the voice. Your brand personality not only addresses what you say but how you say it, and it is not limited to verbal communication.",
+              "Energetic, youthful, and empowering. We speak with clarity and confidence, always aiming to spark curiosity and celebrate technical creativity—just like a mentor cheering you on in a robotics arena.",
           },
           {
             title: "Culture",
             key: "culture",
             description:
-              "Culture is your brand’s origin story. Where was your brand born? Where does it live? What is the belief system and values it ascribes to and why?",
+              "We’re built on the belief that technology is a playground for all minds. Born from a community of creators and engineers, our culture values collaboration, innovation, and healthy competition as vehicles for learning and growth.",
           },
           {
             title: "Relationship",
             key: "relationship",
             description:
-              "Relationship is the engagement between a brand and consumers.This is about more than a monetary transaction: think about how your brand maintains a healthy relationship with its customers from the initial interaction to the after purchase period.",
+              "We’re not just a platform—we're teammates, mentors, and fans. Whether through events, workshops, or online engagement, we foster long-term relationships with makers, students, and enthusiasts, growing alongside their achievements.",
           },
           {
             title: "Self-Image",
             key: "selfImage",
             description:
-              "Self-image is how customers visualize their ideal selves. Understanding this allows brands to cater to their customers more effectively. Consider how their purchases and interactions with you improve their lives.",
+              "Our audience sees themselves as trailblazers—smart, tech-savvy, and ready to take on challenges. Through our competitions and community, they find a space where their talents are recognized, sharpened, and celebrated.",
           },
           {
             title: "Reflection",
-            key: "relationship",
+            key: "reflection",
             description:
-              "Reflection describes who you want your customer to be. Who would you ideally like to reach? Specificity is key here. For a company that is selling biodegradable cosmetics products, it could be working women in their 20s who live in cosmopolitan areas and adhere to a vegan diet.",
+              "We envision our audience as the future builders of the world—innovators, problem-solvers, and dreamers, typically students, hobbyists, and educators who are passionate about robotics and believe in the power of technology to transform lives.",
           },
         ],
       },
-
       style: 1,
     },
     {
