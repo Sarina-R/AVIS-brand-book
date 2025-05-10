@@ -1,4 +1,5 @@
 import { HarmonySection } from "@/app/type";
+import { shadeColor } from "@/lib/shadeColor";
 import { useMDXComponents } from "@/mdx-component";
 import { AnimatePresence, motion } from "framer-motion";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
@@ -90,19 +91,28 @@ const GradientComponent = ({
 }) => {
   const gradients = [
     {
-      name: "Black to Dark Gray",
-      description: "Subtle background transitions.",
-      gradient: `linear-gradient(90deg, ${primaryColor}, #4B5563)`,
+      name: "Primary Gradient",
+      description: "Primary to darker primary.",
+      gradient: `linear-gradient(90deg, ${primaryColor}, ${shadeColor(
+        primaryColor,
+        -20
+      )})`,
     },
     {
-      name: "White to Light Gray",
-      description: "Clean, modern overlays.",
-      gradient: `linear-gradient(90deg, ${secondaryColor}, #D1D5DB)`,
+      name: "Secondary Gradient",
+      description: "Secondary to lighter secondary.",
+      gradient: `linear-gradient(90deg, ${secondaryColor}, ${shadeColor(
+        secondaryColor,
+        20
+      )})`,
     },
     {
-      name: "Green to Dark Green",
-      description: "Accent elements like buttons or highlights.",
-      gradient: `linear-gradient(90deg, ${actionColor}, #15803D)`,
+      name: "Accent Gradient",
+      description: "Accent to darker accent.",
+      gradient: `linear-gradient(90deg, ${actionColor}, ${shadeColor(
+        actionColor,
+        -20
+      )})`,
     },
   ];
 

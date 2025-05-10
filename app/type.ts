@@ -275,7 +275,7 @@ export interface PaletteColors {
   primary: ColorWithShades;
   secondary: ColorWithShades;
   action: ColorWithShades;
-  complementary: ColorWithShades;
+  complementary?: ColorWithShades;
 }
 
 export interface Palette {

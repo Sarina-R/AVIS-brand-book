@@ -23,10 +23,10 @@ const data = {
       subsets: ["latin", "latin-ext"],
     },
     color: {
-      primaryColor: "#000000",
-      secondaryColor: "#FFFFFF",
-      actionColor: "#737373",
-      otherColors: ["#00c950", "#00FF85", "#00a6f4", "#f0b100", "#fb2c36"],
+      primaryColor: "#0068b5",
+      secondaryColor: "#000000",
+      actionColor: "#FFFFFF",
+      otherColors: ["#00c950", "#737373", "#00a6f4", "#f0b100", "#fb2c36"],
     },
   },
   menu: {
@@ -331,14 +331,14 @@ const data = {
       type: "color",
       title: "Color",
       description:
-        "Our brand color palette is inspired by the sleek, minimalist aesthetic of Vercel and Geist, emphasizing a clean black and white foundation with strategic accents for impact.",
+        "Our brand color palette is inspired by the sleek, minimalist aesthetic of Vercel and Geist, emphasizing a vibrant blue primary color with a clean black and white foundation for contrast and impact.",
       pattern:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/FIRA%20CUP%202025%20BRAND%20BOOK%20(7).svg",
       img: "",
       items: {
         MDXComponent: "",
         title: "Color of Our Brand",
-        desc: "Our color palette is rooted in the stark contrast of black and white, inspired by Vercel’s minimalist design ethos. This creates a timeless, professional look, with an optional accent color for emphasis. Consistent use across all platforms ensures brand recognition and cohesion.",
+        desc: "Our color palette is anchored by a vibrant blue primary color, paired with stark black and white for contrast, inspired by Vercel’s minimalist design ethos. This creates a modern, professional look, with consistent use across all platforms ensuring brand recognition and cohesion.",
         img: [
           "https://images.unsplash.com/photo-1618005182380-5f8a4e2c7121?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3",
           "https://images.unsplash.com/photo-1516321318423-3f1e7993b62c?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3",
@@ -347,39 +347,39 @@ const data = {
         palette: {
           title: "The Main Palette",
           description:
-            "The core palette is built on black and white, mirroring Vercel’s clean and modern aesthetic. An optional accent color, inspired by Geist’s subtle vibrancy, is used sparingly for calls to action or highlights.",
+            "The core palette is built on a vibrant blue primary color, with black as the secondary color, white as the complementary color, and teal as the action color, mirroring Vercel’s clean and modern aesthetic. The blue is used for emphasis, while black and white provide a timeless foundation. Teal is used sparingly for calls to action or highlights.",
           colors: {
             primary: {
               id: 1001,
+              hex: "#0068b5",
+              hexColor: "#FFFFFF",
+              name: "Brand Blue",
+              shades: [
+                { id: 102, hex: "#004D87", name: "Dark Blue" },
+                { id: 103, hex: "#0080E0", name: "Light Blue" },
+                { id: 104, hex: "#99C7E8", name: "Pale Blue" },
+              ],
+            },
+            action: {
+              id: 2002,
               hex: "#000000",
               hexColor: "#FFFFFF",
               name: "Brand Black",
               shades: [
-                { id: 102, hex: "#1A1A1A", name: "Dark Gray" },
-                { id: 103, hex: "#333333", name: "Medium Gray" },
-                { id: 104, hex: "#4D4D4D", name: "Light Gray" },
+                { id: 202, hex: "#1A1A1A", name: "Dark Gray" },
+                { id: 203, hex: "#333333", name: "Medium Gray" },
+                { id: 204, hex: "#4D4D4D", name: "Light Gray" },
               ],
             },
             secondary: {
-              id: 2002,
+              id: 3003,
               hex: "#FFFFFF",
               hexColor: "#000000",
               name: "Brand White",
               shades: [
-                { id: 202, hex: "#F5F5F5", name: "Off White" },
-                { id: 203, hex: "#E6E6E6", name: "Light Gray White" },
-                { id: 204, hex: "#D9D9D9", name: "Subtle Gray White" },
-              ],
-            },
-            action: {
-              id: 3003,
-              hex: "#00FF85",
-              hexColor: "#000000",
-              name: "Accent Green",
-              shades: [
-                { id: 302, hex: "#33FF99", name: "Light Green" },
-                { id: 303, hex: "#00CC66", name: "Medium Green" },
-                { id: 304, hex: "#00994C", name: "Dark Green" },
+                { id: 302, hex: "#F5F5F5", name: "Off White" },
+                { id: 303, hex: "#E6E6E6", name: "Light Gray White" },
+                { id: 304, hex: "#D9D9D9", name: "Subtle Gray White" },
               ],
             },
           },
@@ -387,14 +387,14 @@ const data = {
         Harmony: {
           title: "Color Harmony",
           description:
-            "The palette is designed for flexibility while maintaining a cohesive look. Three primary combinations guide usage:\n\n- **Combination 1:** Black as the dominant color, with white for contrast and green accents for emphasis.\n- **Combination 2:** White as the dominant color, with black for text and green for highlights.\n- **Combination 3:** Balanced use of black and white, with minimal green accents for subtle vibrancy.\n\n> **Note:** Combination 1 and 2 are prioritized for most brand applications. Combination 3 is reserved for specific campaigns or secondary materials.",
+            "The palette is designed for flexibility while maintaining a cohesive look. Three primary combinations guide usage:\n\n- **Combination 1:** Blue as the dominant color, with black for contrast, white for highlights, and teal for emphasis.\n- **Combination 2:** Black as the dominant color, with white for text and teal accents for vibrancy.\n- **Combination 3:** White as the dominant color, with black for text and teal for subtle highlights.\n\n> **Note:** Combination 1 and 2 are prioritized for most brand applications. Combination 3 is reserved for specific campaigns or secondary materials.",
           img: "https://cdn.vercel.app/brand/color-harmony-example.svg",
         },
         Gradient: {
           title: "Gradient Usage",
           img: "https://cdn.vercel.app/brand/gradient-example.svg",
           description:
-            "Gradients are used sparingly to add depth. Recommended gradients include:\n\n- **Black to Dark Gray:** For subtle background transitions.\n- **White to Light Gray:** For clean, modern overlays.\n- **Green to Dark Green:** For accent elements like buttons or highlights.\n\n> **Note:** Gradients should not overpower the primary black and white palette and are used only in digital or promotional materials.",
+            "Gradients are used sparingly to add depth. Recommended gradients include:\n\n- **Blue to Dark Blue:** For vibrant background transitions.\n- **Black to Dark Gray:** For subtle background transitions.\n- **White to Light Gray:** For clean, modern overlays.\n- **Teal to Dark Teal:** For accent elements like buttons or highlights.\n\n> **Note:** Gradients should not overpower the primary palette and are used only in digital or promotional materials.",
         },
         paletteUsage: {
           title: "Color Usage in Design",
@@ -404,17 +404,17 @@ const data = {
             {
               id: 5001,
               background: "#000000",
-              name: "White or green text on a black background",
+              name: "White or teal text on a black background",
             },
             {
               id: 5002,
               background: "#FFFFFF",
-              name: "Black or green text on a white background",
+              name: "Black or teal text on a white background",
             },
             {
               id: 5003,
-              background: "#00FF85",
-              name: "Black text on a green background (for accents)",
+              background: "#0068b5",
+              name: "White text on a blue background (for accents)",
             },
           ],
           usageGuidelines: {
@@ -425,38 +425,38 @@ const data = {
                 text: "#FFFFFF",
                 description: "Black background with white text",
               },
-              {
-                id: 7002,
-                background: "#000000",
-                text: "#00FF85",
-                description: "Black background with green accent text",
-              },
+
               {
                 id: 7003,
                 background: "#FFFFFF",
                 text: "#000000",
                 description: "White background with black text",
               },
+              {
+                id: 7002,
+                background: "#ffffff",
+                text: "#0068b5",
+                description: "Black background with teal accent text",
+              },
+              {
+                id: 7004,
+                background: "#0068b5",
+                text: "#FFFFFF",
+                description: "Blue background with white text",
+              },
             ],
             incorrect: [
               {
                 id: 7001,
-                background: "#FFFFFF",
-                text: "#00FF85",
-                description: "White background with green accent text",
+                background: "#000000",
+                text: "#0068b5",
+                description: "White background with teal text (low contrast)",
               },
               {
                 id: 6001,
-                background: "#00FF85",
-                text: "#FFFFFF",
-                description: "Green background with white text (low contrast)",
-              },
-              {
-                id: 6002,
-                background: "#FFFFFF",
-                text: "#E6E6E6",
-                description:
-                  "White background with light gray text (poor readability)",
+                background: "#0068b5",
+                text: "#000000",
+                description: "Blue background with black text (low contrast)",
               },
             ],
           },
