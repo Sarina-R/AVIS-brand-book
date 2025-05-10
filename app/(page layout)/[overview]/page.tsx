@@ -84,7 +84,6 @@ const Page = () => {
           return (
             <ToneOfVoiceSection
               key={section.type}
-              section={section}
               primaryColor={data.brand.color.primaryColor}
             />
           );
