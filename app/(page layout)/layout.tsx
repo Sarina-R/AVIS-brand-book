@@ -170,7 +170,7 @@ export default function RootLayout({
           />
         </svg>
         <svg
-          className="absolute top-[76vh] right-0 w-32 h-32 opacity-40 z-0"
+          className="absolute top-[74vh] right-0 w-32 h-32 opacity-40 z-0"
           viewBox="0 0 100 100"
           fill="none"
           stroke="url(#grad3)"
@@ -196,7 +196,7 @@ export default function RootLayout({
           />
         </svg>
         <svg
-          className="absolute top-[76vh] left-0 w-32 h-32 opacity-40 z-0"
+          className="absolute top-[74vh] left-0 w-32 h-32 opacity-40 z-0"
           viewBox="0 0 100 100"
           fill="none"
           stroke="url(#grad4)"
