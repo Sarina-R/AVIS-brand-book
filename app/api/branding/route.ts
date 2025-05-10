@@ -117,8 +117,9 @@ const data = {
     },
     {
       type: "statement",
-      title: "Statement Section",
-      description: "AVIS - IRAN,",
+      title: "AVIS: Innovate, Automate, Inspire",
+      description:
+        "AVIS is a leader in robotics and artificial intelligence, dedicated to creating intelligent systems that empower humanity. Our brand embodies innovation, precision, and a commitment to pushing technological boundaries.,",
       pattern:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/FIRA%20CUP%202025%20BRAND%20BOOK%20(7).svg",
       img: "",
