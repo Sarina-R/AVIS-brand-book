@@ -115,157 +115,159 @@ export default function RootLayout({
   }
 
   return (
-    <div className="relative overflow-hidden p-2">
-      <svg
-        className="absolute top-0 right-0 w-32 h-32 opacity-40 z-0"
-        viewBox="0 0 100 100"
-        fill="none"
-        stroke="url(#grad1)"
-      >
-        <defs>
-          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop
-              offset="0%"
-              style={{ stopColor: "#ff6b6b", stopOpacity: 1 }}
-            />
-            <stop
-              offset="100%"
-              style={{ stopColor: "#4ecdc4", stopOpacity: 1 }}
-            />
-          </linearGradient>
-        </defs>
-        <motion.path
-          d="M10 10 L90 10 L90 90"
-          strokeWidth="3"
-          initial="hidden"
-          animate="visible"
-          variants={lineDraw}
-        />
-      </svg>
-      <svg
-        className="absolute top-0 left-0 w-32 h-32 opacity-40 z-0"
-        viewBox="0 0 100 100"
-        fill="none"
-        stroke="url(#grad2)"
-      >
-        <defs>
-          <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop
-              offset="0%"
-              style={{ stopColor: "#45b7d1", stopOpacity: 1 }}
-            />
-            <stop
-              offset="100%"
-              style={{ stopColor: "#ff6b6b", stopOpacity: 1 }}
-            />
-          </linearGradient>
-        </defs>
-        <motion.path
-          d="M90 10 L10 10 L10 90"
-          strokeWidth="3"
-          initial="hidden"
-          animate="visible"
-          variants={lineDraw}
-        />
-      </svg>
-      <svg
-        className="absolute top-[76vh] right-0 w-32 h-32 opacity-40 z-0"
-        viewBox="0 0 100 100"
-        fill="none"
-        stroke="url(#grad3)"
-      >
-        <defs>
-          <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop
-              offset="0%"
-              style={{ stopColor: "#4ecdc4", stopOpacity: 1 }}
-            />
-            <stop
-              offset="100%"
-              style={{ stopColor: "#45b7d1", stopOpacity: 1 }}
-            />
-          </linearGradient>
-        </defs>
-        <motion.path
-          d="M10 90 L90 90 L90 10"
-          strokeWidth="3"
-          initial="hidden"
-          animate="visible"
-          variants={lineDraw}
-        />
-      </svg>
-      <svg
-        className="absolute top-[76vh] left-0 w-32 h-32 opacity-40 z-0"
-        viewBox="0 0 100 100"
-        fill="none"
-        stroke="url(#grad4)"
-      >
-        <defs>
-          <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop
-              offset="0%"
-              style={{ stopColor: "#ff6b6b", stopOpacity: 1 }}
-            />
-            <stop
-              offset="100%"
-              style={{ stopColor: "#4ecdc4", stopOpacity: 1 }}
-            />
-          </linearGradient>
-        </defs>
-        <motion.path
-          d="M90 90 L10 90 L10 10"
-          strokeWidth="3"
-          initial="hidden"
-          animate="visible"
-          variants={lineDraw}
-        />
-      </svg>
-
-      <section className="relative min-h-screen flex items-center justify-center py-16 sm:px-15">
-        <motion.div
-          className="text-center max-w-3xl mx-auto px-4 z-10"
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
+    <div className="p-2">
+      <div key={pathname} className="relative overflow-hidden">
+        <svg
+          className="absolute top-0 right-0 w-32 h-32 opacity-40 z-0"
+          viewBox="0 0 100 100"
+          fill="none"
+          stroke="url(#grad1)"
         >
-          <h1 className="text-4xl md:text-5xl font-semibold mb-6">
-            {typeof currentSectionData?.title === "object" ? (
-              <MDXRemote
-                {...(currentSectionData.title as MDXRemoteSerializeResult)}
-                components={mdxComponent1}
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop
+                offset="0%"
+                style={{ stopColor: "#ff6b6b", stopOpacity: 1 }}
               />
-            ) : (
-              currentSectionData?.title
-            )}
-          </h1>
-
-          <span className="text-base md:text-lg text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto">
-            {typeof currentSectionData?.description === "object" ? (
-              <MDXRemote
-                {...(currentSectionData.description as MDXRemoteSerializeResult)}
-                components={mdxComponent1}
+              <stop
+                offset="100%"
+                style={{ stopColor: "#4ecdc4", stopOpacity: 1 }}
               />
-            ) : (
-              currentSectionData?.description
-            )}
-          </span>
+            </linearGradient>
+          </defs>
+          <motion.path
+            d="M10 10 L90 10 L90 90"
+            strokeWidth="3"
+            initial="hidden"
+            animate="visible"
+            variants={lineDraw}
+          />
+        </svg>
+        <svg
+          className="absolute top-0 left-0 w-32 h-32 opacity-40 z-0"
+          viewBox="0 0 100 100"
+          fill="none"
+          stroke="url(#grad2)"
+        >
+          <defs>
+            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop
+                offset="0%"
+                style={{ stopColor: "#45b7d1", stopOpacity: 1 }}
+              />
+              <stop
+                offset="100%"
+                style={{ stopColor: "#ff6b6b", stopOpacity: 1 }}
+              />
+            </linearGradient>
+          </defs>
+          <motion.path
+            d="M90 10 L10 10 L10 90"
+            strokeWidth="3"
+            initial="hidden"
+            animate="visible"
+            variants={lineDraw}
+          />
+        </svg>
+        <svg
+          className="absolute top-[76vh] right-0 w-32 h-32 opacity-40 z-0"
+          viewBox="0 0 100 100"
+          fill="none"
+          stroke="url(#grad3)"
+        >
+          <defs>
+            <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop
+                offset="0%"
+                style={{ stopColor: "#4ecdc4", stopOpacity: 1 }}
+              />
+              <stop
+                offset="100%"
+                style={{ stopColor: "#45b7d1", stopOpacity: 1 }}
+              />
+            </linearGradient>
+          </defs>
+          <motion.path
+            d="M10 90 L90 90 L90 10"
+            strokeWidth="3"
+            initial="hidden"
+            animate="visible"
+            variants={lineDraw}
+          />
+        </svg>
+        <svg
+          className="absolute top-[76vh] left-0 w-32 h-32 opacity-40 z-0"
+          viewBox="0 0 100 100"
+          fill="none"
+          stroke="url(#grad4)"
+        >
+          <defs>
+            <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop
+                offset="0%"
+                style={{ stopColor: "#ff6b6b", stopOpacity: 1 }}
+              />
+              <stop
+                offset="100%"
+                style={{ stopColor: "#4ecdc4", stopOpacity: 1 }}
+              />
+            </linearGradient>
+          </defs>
+          <motion.path
+            d="M90 90 L10 90 L10 10"
+            strokeWidth="3"
+            initial="hidden"
+            animate="visible"
+            variants={lineDraw}
+          />
+        </svg>
 
-          <div className="flex justify-center gap-6 mt-8">
-            <motion.div whileHover="hover" variants={scaleHover}>
-              <Rocket className="text-3xl" />
-            </motion.div>
-            <motion.div whileHover="hover" variants={scaleHover}>
-              <Cpu className="text-3xl" />
-            </motion.div>
-            <motion.div whileHover="hover" variants={scaleHover}>
-              <Star className="text-3xl" />
-            </motion.div>
-            <motion.div whileHover="hover" variants={scaleHover}>
-              <Zap className="text-3xl" />
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
+        <section className="relative min-h-screen flex items-center justify-center py-16 sm:px-15">
+          <motion.div
+            className="text-center max-w-3xl mx-auto px-4 z-10"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+          >
+            <h1 className="text-4xl md:text-5xl font-semibold mb-6">
+              {typeof currentSectionData?.title === "object" ? (
+                <MDXRemote
+                  {...(currentSectionData.title as MDXRemoteSerializeResult)}
+                  components={mdxComponent1}
+                />
+              ) : (
+                currentSectionData?.title
+              )}
+            </h1>
+
+            <span className="text-base md:text-lg text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto">
+              {typeof currentSectionData?.description === "object" ? (
+                <MDXRemote
+                  {...(currentSectionData.description as MDXRemoteSerializeResult)}
+                  components={mdxComponent1}
+                />
+              ) : (
+                currentSectionData?.description
+              )}
+            </span>
+
+            <div className="flex justify-center gap-6 mt-8">
+              <motion.div whileHover="hover" variants={scaleHover}>
+                <Rocket className="text-3xl" />
+              </motion.div>
+              <motion.div whileHover="hover" variants={scaleHover}>
+                <Cpu className="text-3xl" />
+              </motion.div>
+              <motion.div whileHover="hover" variants={scaleHover}>
+                <Star className="text-3xl" />
+              </motion.div>
+              <motion.div whileHover="hover" variants={scaleHover}>
+                <Zap className="text-3xl" />
+              </motion.div>
+            </div>
+          </motion.div>
+        </section>
+      </div>
 
       <div className="p-4">{children}</div>
 
