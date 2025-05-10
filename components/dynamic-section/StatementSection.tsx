@@ -169,8 +169,7 @@ export default function StatementSection({
       <section className="py-20 relative mb-24">
         <div className="container mx-auto px-4 z-10">
           <motion.h2
-            className="text-4xl font-bold text-center mb-12 dark:text-[#4ba8e8]"
-            style={{ color: primaryColor }}
+            className="text-4xl font-bold text-center mb-12"
             initial="hidden"
             whileInView="visible"
             variants={fadeIn}

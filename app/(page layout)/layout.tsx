@@ -183,7 +183,7 @@ export default function RootLayout({
             animate="visible"
             variants={fadeIn}
           >
-            <h1 className="text-4xl md:text-5xl font-semibold mb-6 bg-clip-text dark:text-transparent text-[#4ba8e8] dark:bg-gradient-to-r dark:from-[#4ba8e8] dark:to-[#127cc1]">
+            <h1 className="text-4xl md:text-5xl font-semibold mb-6">
               {typeof currentSectionData?.title === "object" ? (
                 <MDXRemote
                   {...(currentSectionData.title as MDXRemoteSerializeResult)}
