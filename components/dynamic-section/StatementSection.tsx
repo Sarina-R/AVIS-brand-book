@@ -71,7 +71,7 @@ export default function StatementSection() {
   ];
 
   return (
-    <div className="relative bg-white dark:bg-neutral-950 text-black dark:text-white overflow-hidden">
+    <div className="relative overflow-hidden">
       {isMounted && (
         <Particles
           id="tsparticles"
@@ -261,16 +261,16 @@ export default function StatementSection() {
           </p>
           <div className="flex justify-center gap-6">
             <motion.div whileHover="hover" variants={scaleHover}>
-              <Rocket className="text-3xl text-black dark:text-white" />
+              <Rocket className="text-3xl" />
             </motion.div>
             <motion.div whileHover="hover" variants={scaleHover}>
-              <Cpu className="text-3xl text-black dark:text-white" />
+              <Cpu className="text-3xl" />
             </motion.div>
             <motion.div whileHover="hover" variants={scaleHover}>
-              <Star className="text-3xl text-black dark:text-white" />
+              <Star className="text-3xl" />
             </motion.div>
             <motion.div whileHover="hover" variants={scaleHover}>
-              <Zap className="text-3xl text-black dark:text-white" />
+              <Zap className="text-3xl" />
             </motion.div>
           </div>
         </motion.div>
