@@ -3,12 +3,7 @@
 import { motion } from "framer-motion";
 import { JSX, useEffect, useState } from "react";
 import Particles from "react-tsparticles";
-// import { loadFull } from "tsparticles";
-import { Cpu, Rocket, Star, Zap, Code, Globe } from "lucide-react";
-
-// const particlesInit = async (main: any) => {
-//   await loadFull(main);
-// };
+import { Zap, Code, Globe } from "lucide-react";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -17,15 +12,6 @@ const fadeIn = {
 
 const scaleHover = {
   hover: { scale: 1.05, transition: { duration: 0.3 } },
-};
-
-const lineDraw = {
-  hidden: { pathLength: 0, opacity: 0 },
-  visible: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 1.2, ease: "easeInOut" },
-  },
 };
 
 const rotate = {
