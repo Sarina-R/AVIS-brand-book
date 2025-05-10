@@ -162,7 +162,7 @@ export default function StatementSection() {
         />
       </svg>
       <svg
-        className="absolute bottom-0 left-0 w-32 h-32 opacity-40 z-0"
+        className="absolute bottom-0 right-0 w-32 h-32 opacity-40 z-0"
         viewBox="0 0 100 100"
         fill="none"
         stroke="url(#grad3)"
@@ -188,7 +188,7 @@ export default function StatementSection() {
         />
       </svg>
       <svg
-        className="absolute bottom-0 right-0 w-32 h-32 opacity-40 z-0"
+        className="absolute bottom-0 left-0 w-32 h-32 opacity-40 z-0"
         viewBox="0 0 100 100"
         fill="none"
         stroke="url(#grad4)"
@@ -213,7 +213,6 @@ export default function StatementSection() {
           variants={lineDraw}
         />
       </svg>
-      {/* Center Circular SVG */}
       <svg
         className="absolute top-1/2 left-1/2 w-48 h-48 opacity-20 z-0 transform -translate-x-1/2 -translate-y-1/2"
         viewBox="0 0 200 200"
@@ -302,7 +301,7 @@ export default function StatementSection() {
         </div>
       </section>
 
-      <section className="py-16 relative">
+      <section className="py-16 relative mb-24">
         <div className="container mx-auto px-4 z-10">
           <motion.h2
             className="text-3xl font-medium text-center mb-10"
