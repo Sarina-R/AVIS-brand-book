@@ -17,15 +17,6 @@ const glowPulse = {
   },
 };
 
-const neonLine = {
-  hidden: { scaleX: 0, opacity: 0 },
-  visible: {
-    scaleX: 1,
-    opacity: 1,
-    transition: { duration: 1, ease: "easeOut" },
-  },
-};
-
 interface ToneItem {
   title: string;
   desc: string;
