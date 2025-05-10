@@ -170,36 +170,52 @@ export const BrandIdentityCA = `<div className="grid grid-cols-2 sm:grid-cols-2 
         </div>
       </div>`;
 
-export const Tagline = `<div className="mt-20 px-4 sm:px-8 lg:px-16">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-sm text-neutral-600 dark:text-neutral-400 leading-6">
-      <div className="space-y-4">
-        <h3 className="text-lg font-semibold ">"Enjoy Robots"</h3>
-        <ul className="space-y-2 list-disc">
-          <li>
-            <strong>Innovation & Technology:</strong> Celebrates the excitement of cutting-edge robotic advancements.
-          </li>
-          <li>
-            <strong>Educational Engagement:</strong> Fosters curiosity and learning through hands-on interaction.
-          </li>
-        </ul>
-      </div>
+export const Tagline = `<section class="relative bg-[#127cc1] dark:bg-[#127cc1]/30 text-white py-20 overflow-hidden">
+  <svg class="absolute top-0 left-0 w-full h-full opacity-60 dark:opacity-20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <defs>
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M40 0H0V40" fill="none" stroke="#00f0ff" stroke-width="0.5" />
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid)" />
+  </svg>
 
-      <div className="space-y-4">
-        <h3 className="text-lg font-semibold ">"Enjoy Life"</h3>
-        <ul className="space-y-2 list-disc">
-          <li>
-            <strong>Improved Quality of Life:</strong> Simplifies tasks and boosts efficiency through robotics.
-          </li>
-          <li>
-            <strong>Future Prospects:</strong> Tackles global challenges with AI-driven solutions.
-          </li>
-          <li>
-            <strong>Inclusivity & Accessibility:</strong> Ensures everyone benefits from robotic innovations.
-          </li>
-        </ul>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-[--neon-blue] drop-shadow-md">"Pioneer in Engineering"</h2>
+    <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
+      At Avis Engine, our tagline embodies our commitment to innovation, precision, and excellence in engineering solutions.
+    </p>
+  </div>
+</section>
+
+<section class="py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h3 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Breaking Down Our Tagline</h3>
+    <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto">
+      "Pioneer in Engineering" reflects Avis Engine's ethos of leading the way in innovative engineering solutions. Let's explore what each word means to us.
+    </p>
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-neutral-100 dark:bg-neutral-900 p-6 rounded-lg shadow-lg border border-[--neon-blue]">
+        <h4 class="text-xl font-semibold text-[--neon-blue]">Pioneer</h4>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">
+          We are trailblazers, pushing boundaries and setting new standards in the engineering industry with cutting-edge solutions.
+        </p>
+      </div>
+      <div class="bg-neutral-100 dark:bg-neutral-900 p-6 rounded-lg shadow-lg border border-[--neon-blue]">
+        <h4 class="text-xl font-semibold text-[--neon-blue]">In</h4>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">
+          Our work is deeply embedded in the engineering field, collaborating with industries to solve complex challenges.
+        </p>
+      </div>
+      <div class="bg-neutral-100 dark:bg-neutral-900 p-6 rounded-lg shadow-lg border border-[--neon-blue]">
+        <h4 class="text-xl font-semibold text-[--neon-blue]">Engineering</h4>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">
+          Engineering is our craft—combining science, technology, and creativity to deliver impactful and sustainable solutions.
+        </p>
       </div>
     </div>
-  </div>`;
+  </div>
+</section>`;
 
 // export const taglineMDXComponent = `
 //     <div className="flex flex-col md:flex-row gap-6">
@@ -289,13 +305,6 @@ export const ToneOfVoiceG = `
 `;
 
 export const ToneOfVoice = `<div className="w-full px-6 py-14 space-y-16">
-  <div className="text-center space-y-4 max-w-3xl mx-auto">
-    <h1 className="text-3xl font-bold tracking-tight">Tone of Voice</h1>
-    <p className="text-neutral-700 dark:text-neutral-300 leading-7">
-      At AVIS, our tone balances <strong>professionalism</strong> with <strong>approachability</strong>. We speak with clarity, purpose, and warmth—whether addressing tech partners, young engineers, or event attendees. Our voice adapts to its audience, but never loses its core: <em>trust, innovation, and respect</em>.
-    </p>
-  </div>
-
   <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
     
     <div className="relative bg-gradient-to-br from-zinc-100 to-white dark:from-zinc-900 dark:to-zinc-800 p-8 rounded-3xl shadow-md border hover:scale-[1.02] transition-all duration-300">
@@ -327,69 +336,6 @@ export const ToneOfVoice = `<div className="w-full px-6 py-14 space-y-16">
     </div>
   </div>
 </div>`;
-
-export const ToneOfVoiceCA = `
-<h2 className="py-12 px-6 text-neutral-800 dark:text-neutral-200 text-2xl font-bold mb-6">Tone</h2> 
-<div className="w-full px-6 sm:px-12 lg:px-24 rounded-2xl">
-  <div className="grid lg:grid-cols-2 gap-10 text-sm text-neutral-700 dark:text-neutral-300">
-    <div className="flex gap-4">
-      <div className="flex-shrink-0 p-3 bg-[#d22b2b] opacity-50 rounded-full">
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path d="M12 2a10 10 0 00-7.07 17.07c.31.31.73.57 1.17.72a.75.75 0 00.9-.28l1.82-2.54a.75.75 0 00-.13-.97A6 6 0 0112 6a6 6 0 014.31 10.01.75.75 0 00-.13.97l1.82 2.54a.75.75 0 00.9.28c.44-.15.86-.41 1.17-.72A10 10 0 0012 2z"/>
-        </svg>
-      </div>
-      <div>
-        <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200">Empathetic & Supportive</h3>
-        <p>
-          We understand the challenges and aspirations of our audience. Our tone is empathetic and supportive, offering reassurance and guidance. We speak to our audience’s needs and concerns, making them feel valued and understood.
-        </p>
-      </div>
-    </div>
-
-    <div className="flex gap-4">
-      <div className="flex-shrink-0 p-3 bg-[#d22b2b] opacity-50 rounded-full">
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-        </svg>
-      </div>
-      <div>
-        <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200">Clear & Concise</h3>
-        <p>
-          Clarity is key in all our communications. We avoid jargon and complex language, ensuring our messages are easily understood. Our tone is straightforward and to the point, making information accessible and actionable.
-        </p>
-      </div>
-    </div>
-
-    <div className="flex gap-4">
-      <div className="flex-shrink-0 p-3 bg-[#d22b2b] opacity-50 rounded-full">
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path d="M3 10h2a1 1 0 011 1v7a1 1 0 01-1 1H3m0-9V6a1 1 0 011-1h4m0 0h3a1 1 0 011 1v2m0 0h6a1 1 0 011 1v7a1 1 0 01-1 1h-6m-4-8V6m0 8v2"/>
-        </svg>
-      </div>
-      <div>
-        <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200">Dynamic & Motivating</h3>
-        <p>
-          FIRA’s tone is dynamic and motivating. We inspire our audience to take action and embrace change. Our communications are infused with energy and enthusiasm, encouraging engagement and participation.
-        </p>
-      </div>
-    </div>
-
-    <div className="flex gap-4">
-      <div className="flex-shrink-0 p-3 bg-[#d22b2b] opacity-50 rounded-full">
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path d="M7 8h10M7 12h4m-4 4h10M5 3a2 2 0 00-2 2v14l4-4h12a2 2 0 002-2V5a2 2 0 00-2-2H5z"/>
-        </svg>
-      </div>
-      <div>
-        <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200">Inclusive & Respectful</h3>
-        <p>
-          We value diversity and inclusivity. Our tone is always respectful and considerate, ensuring everyone feels welcome and appreciated. We strive to create a positive and inclusive environment through our communications.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-`;
 
 export const Mascot = `<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
   <div className="relative rounded-2xl p-6 sm:p-8 bg-[#FDB813]">

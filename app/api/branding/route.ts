@@ -23,7 +23,7 @@ const data = {
       subsets: ["latin", "latin-ext"],
     },
     color: {
-      primaryColor: "#0068b5",
+      primaryColor: "#127cc1",
       secondaryColor: "#000000",
       actionColor: "#FFFFFF",
       otherColors: ["#00c950", "#737373", "#00a6f4", "#f0b100", "#fb2c36"],
@@ -191,7 +191,8 @@ const data = {
     {
       type: "tone_of_voice",
       title: "Tone Of Voice",
-      description: "",
+      description:
+        "At AVIS, our tone balances professionalism with approachability. We speak with clarity, purpose, and warmth—whether addressing tech partners, young engineers, or event attendees. Our voice adapts to its audience, but never loses its core: trust, innovation, and respect.",
       pattern:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/FIRA%20CUP%202025%20BRAND%20BOOK%20(7).svg",
       img: "",
@@ -221,13 +222,13 @@ const data = {
     {
       type: "tagline",
       title: "Tagline",
-      description: "",
+      description: "Pioneer in Engineering",
       pattern:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/FIRA%20CUP%202025%20BRAND%20BOOK%20(7).svg",
       img: "",
       items: {
         MDXComponent: Tagline,
-        title: "Enjoy Robots, Enjoy Life",
+        title: "",
       },
     },
     {
@@ -352,7 +353,7 @@ const data = {
           colors: {
             primary: {
               id: 1001,
-              hex: "#0068b5",
+              hex: "#127cc1",
               hexColor: "#FFFFFF",
               name: "Brand Blue",
               shades: [
@@ -414,7 +415,7 @@ const data = {
             },
             {
               id: 5003,
-              background: "#0068b5",
+              background: "#127cc1",
               name: "White text on a blue background (for accents)",
             },
           ],
@@ -436,12 +437,12 @@ const data = {
               {
                 id: 7002,
                 background: "#ffffff",
-                text: "#0068b5",
+                text: "#127cc1",
                 description: "Black background with teal accent text",
               },
               {
                 id: 7004,
-                background: "#0068b5",
+                background: "#127cc1",
                 text: "#FFFFFF",
                 description: "Blue background with white text",
               },
@@ -450,12 +451,12 @@ const data = {
               {
                 id: 7001,
                 background: "#000000",
-                text: "#0068b5",
+                text: "#127cc1",
                 description: "White background with teal text (low contrast)",
               },
               {
                 id: 6001,
-                background: "#0068b5",
+                background: "#127cc1",
                 text: "#000000",
                 description: "Blue background with black text (low contrast)",
               },
