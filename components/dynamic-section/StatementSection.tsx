@@ -21,6 +21,13 @@ const rotate = {
   },
 };
 
+const glowPulse = {
+  animate: {
+    filter: ["brightness(1)", "brightness(1.3)", "brightness(1)"],
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+  },
+};
+
 interface ValueItem {
   title: string;
   desc: string;
@@ -28,7 +35,11 @@ interface ValueItem {
   icon: JSX.Element;
 }
 
-export default function StatementSection() {
+export default function StatementSection({
+  primaryColor,
+}: {
+  primaryColor: string;
+}) {
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
   useEffect(() => {
@@ -40,19 +51,34 @@ export default function StatementSection() {
       title: "Innovation",
       desc: "Pushing the boundaries of robotics and AI to create groundbreaking solutions.",
       link: "https://avisengine.com/innovation",
-      icon: <Code className="text-2xl" />,
+      icon: (
+        <Code
+          className="text-2xl dark:text-[#4ba8e8]"
+          style={{ color: primaryColor }}
+        />
+      ),
     },
     {
       title: "Collaboration",
       desc: "Fostering partnerships to amplify human and machine potential.",
       link: "https://events.avisengine.com",
-      icon: <Globe className="text-2xl" />,
+      icon: (
+        <Globe
+          className="text-2xl dark:text-[#4ba8e8]"
+          style={{ color: primaryColor }}
+        />
+      ),
     },
     {
       title: "Precision",
       desc: "Engineering with accuracy to deliver reliable, impactful technology.",
       link: "https://avisengine.com/technology",
-      icon: <Zap className="text-2xl" />,
+      icon: (
+        <Zap
+          className="text-2xl dark:text-[#4ba8e8]"
+          style={{ color: primaryColor }}
+        />
+      ),
     },
   ];
 
@@ -61,7 +87,6 @@ export default function StatementSection() {
       {isMounted && (
         <Particles
           id="tsparticles"
-          // init={particlesInit}
           options={{
             background: { color: { value: "transparent" } },
             fpsLimit: 120,
@@ -71,23 +96,23 @@ export default function StatementSection() {
                 onClick: { enable: true, mode: "push" },
               },
               modes: {
-                bubble: { distance: 200, size: 5, duration: 2, opacity: 0.8 },
-                push: { quantity: 4 },
+                bubble: { distance: 200, size: 6, duration: 2, opacity: 0.8 },
+                push: { quantity: 3 },
               },
             },
             particles: {
-              color: { value: ["#ff6b6b", "#4ecdc4", "#45b7d1"] },
+              color: { value: [primaryColor, "#4ba8e8"] },
               move: {
                 direction: "none",
                 enable: true,
                 outModes: { default: "bounce" },
                 random: true,
-                speed: 1,
+                speed: 0.8,
               },
-              number: { density: { enable: true, area: 800 }, value: 80 },
-              opacity: { value: { min: 0.1, max: 0.5 } },
+              number: { density: { enable: true, area: 1000 }, value: 60 },
+              opacity: { value: { min: 0.2, max: 0.6 } },
               shape: { type: ["circle", "triangle", "star"] },
-              size: { value: { min: 1, max: 4 } },
+              size: { value: { min: 1, max: 3 } },
             },
             detectRetina: true,
           }}
@@ -96,39 +121,30 @@ export default function StatementSection() {
       )}
 
       <svg
-        className="absolute top-1/2 left-1/2 w-48 h-48 opacity-20 z-0 transform -translate-x-1/2 -translate-y-1/2"
+        className="absolute top-1/2 left-1/2 w-64 h-64 opacity-30 z-0 transform -translate-x-1/2 -translate-y-1/2"
         viewBox="0 0 200 200"
         fill="none"
-        stroke="url(#grad5)"
       >
-        <defs>
-          <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop
-              offset="0%"
-              style={{ stopColor: "#45b7d1", stopOpacity: 1 }}
-            />
-            <stop
-              offset="100%"
-              style={{ stopColor: "#ff6b6b", stopOpacity: 1 }}
-            />
-          </linearGradient>
-        </defs>
         <motion.g animate="animate" variants={rotate}>
           <path
             d="M100 20 A80 80 0 0 1 180 100 A80 80 0 0 1 100 180 A80 80 0 0 1 20 100 A80 80 0 0 1 100 20"
             strokeWidth="2"
+            style={{ stroke: primaryColor }}
+            className="dark:stroke-[#4ba8e8]"
           />
           <path
             d="M100 50 A50 50 0 0 1 150 100 A50 50 0 0 1 100 150 A50 50 0 0 1 50 100 A50 50 0 0 1 100 50"
             strokeWidth="2"
+            style={{ stroke: primaryColor }}
+            className="dark:stroke-[#4ba8e8]"
           />
         </motion.g>
       </svg>
 
-      <section className="py-16 bg-neutral-100 dark:bg-neutral-900 relative">
+      <section className="py-20 relative">
         <div className="container mx-auto px-4 z-10">
           <motion.h2
-            className="text-3xl font-medium text-center mb-10"
+            className="text-4xl font-bold text-center mb-12"
             initial="hidden"
             whileInView="visible"
             variants={fadeIn}
@@ -137,7 +153,7 @@ export default function StatementSection() {
             Our Mission
           </motion.h2>
           <motion.p
-            className="text-base md:text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto text-center"
+            className="text-lg text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto text-center leading-relaxed"
             initial="hidden"
             whileInView="visible"
             variants={fadeIn}
@@ -150,10 +166,11 @@ export default function StatementSection() {
         </div>
       </section>
 
-      <section className="py-16 relative mb-24">
+      <section className="py-20 relative mb-24">
         <div className="container mx-auto px-4 z-10">
           <motion.h2
-            className="text-3xl font-medium text-center mb-10"
+            className="text-4xl font-bold text-center mb-12 dark:text-[#4ba8e8]"
+            style={{ color: primaryColor }}
             initial="hidden"
             whileInView="visible"
             variants={fadeIn}
@@ -161,11 +178,14 @@ export default function StatementSection() {
           >
             Our Values & Vision
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {valueItems.map((item: ValueItem, index: number) => (
               <motion.div
                 key={index}
-                className="relative bg-white dark:bg-neutral-800 rounded-lg shadow-md p-6"
+                className="relative bg-white/80 dark:bg-neutral-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-[#4ba8e8]/50 shadow-lg hover:shadow-lg transition-shadow"
+                style={{
+                  boxShadow: `0 4px 20px ${primaryColor}40`,
+                }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -173,11 +193,20 @@ export default function StatementSection() {
                 variants={scaleHover}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center gap-3 mb-2">
-                  {item.icon}
-                  <h3 className="text-lg font-semibold">{item.title}</h3>
+                <motion.div
+                  className="absolute inset-0 border-2 border-transparent rounded-xl dark:border-[#4ba8e8]/30"
+                  animate="animate"
+                  variants={glowPulse}
+                />
+                <div className="flex items-center gap-4 mb-4">
+                  <motion.div animate="animate" variants={glowPulse}>
+                    {item.icon}
+                  </motion.div>
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+                    {item.title}
+                  </h3>
                 </div>
-                <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+                <p className="text-neutral-600 dark:text-neutral-300 mb-4 text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </motion.div>

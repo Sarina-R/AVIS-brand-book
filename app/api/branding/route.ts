@@ -26,7 +26,14 @@ const data = {
       primaryColor: "#127cc1",
       secondaryColor: "#000000",
       actionColor: "#FFFFFF",
-      otherColors: ["#00c950", "#737373", "#00a6f4", "#f0b100", "#fb2c36"],
+      otherColors: [
+        "#4ba8e8",
+        "#00c950",
+        "#737373",
+        "#00a6f4",
+        "#f0b100",
+        "#fb2c36",
+      ],
     },
   },
   menu: {

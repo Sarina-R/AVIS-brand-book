@@ -114,6 +114,8 @@ export default function RootLayout({
     }
   }
 
+  const primaryColor = data.brand.color.primaryColor;
+
   return (
     <div className="p-2">
       <div key={pathname} className="relative overflow-hidden">
@@ -121,104 +123,56 @@ export default function RootLayout({
           className="absolute top-0 right-0 w-32 h-32 opacity-40 z-0"
           viewBox="0 0 100 100"
           fill="none"
-          stroke="url(#grad1)"
         >
-          <defs>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop
-                offset="0%"
-                style={{ stopColor: "#ff6b6b", stopOpacity: 1 }}
-              />
-              <stop
-                offset="100%"
-                style={{ stopColor: "#4ecdc4", stopOpacity: 1 }}
-              />
-            </linearGradient>
-          </defs>
           <motion.path
             d="M10 10 L90 10 L90 90"
             strokeWidth="3"
             initial="hidden"
             animate="visible"
             variants={lineDraw}
+            className="stroke-[#127cc1] dark:stroke-[#4ba8e8]"
           />
         </svg>
         <svg
           className="absolute top-0 left-0 w-32 h-32 opacity-40 z-0"
           viewBox="0 0 100 100"
           fill="none"
-          stroke="url(#grad2)"
         >
-          <defs>
-            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop
-                offset="0%"
-                style={{ stopColor: "#45b7d1", stopOpacity: 1 }}
-              />
-              <stop
-                offset="100%"
-                style={{ stopColor: "#ff6b6b", stopOpacity: 1 }}
-              />
-            </linearGradient>
-          </defs>
           <motion.path
             d="M90 10 L10 10 L10 90"
             strokeWidth="3"
             initial="hidden"
             animate="visible"
             variants={lineDraw}
+            className="stroke-[#127cc1] dark:stroke-[#4ba8e8]"
           />
         </svg>
         <svg
           className="absolute top-[74vh] right-0 w-32 h-32 opacity-40 z-0"
           viewBox="0 0 100 100"
           fill="none"
-          stroke="url(#grad3)"
         >
-          <defs>
-            <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop
-                offset="0%"
-                style={{ stopColor: "#4ecdc4", stopOpacity: 1 }}
-              />
-              <stop
-                offset="100%"
-                style={{ stopColor: "#45b7d1", stopOpacity: 1 }}
-              />
-            </linearGradient>
-          </defs>
           <motion.path
             d="M10 90 L90 90 L90 10"
             strokeWidth="3"
             initial="hidden"
             animate="visible"
             variants={lineDraw}
+            className="stroke-[#127cc1] dark:stroke-[#4ba8e8]"
           />
         </svg>
         <svg
           className="absolute top-[74vh] left-0 w-32 h-32 opacity-40 z-0"
           viewBox="0 0 100 100"
           fill="none"
-          stroke="url(#grad4)"
         >
-          <defs>
-            <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop
-                offset="0%"
-                style={{ stopColor: "#ff6b6b", stopOpacity: 1 }}
-              />
-              <stop
-                offset="100%"
-                style={{ stopColor: "#4ecdc4", stopOpacity: 1 }}
-              />
-            </linearGradient>
-          </defs>
           <motion.path
             d="M90 90 L10 90 L10 10"
             strokeWidth="3"
             initial="hidden"
             animate="visible"
             variants={lineDraw}
+            className="stroke-[#127cc1] dark:stroke-[#4ba8e8]"
           />
         </svg>
 
@@ -229,7 +183,7 @@ export default function RootLayout({
             animate="visible"
             variants={fadeIn}
           >
-            <h1 className="text-4xl md:text-5xl font-semibold mb-6">
+            <h1 className="text-4xl md:text-5xl font-semibold mb-6 bg-clip-text dark:text-transparent text-[#4ba8e8] dark:bg-gradient-to-r dark:from-[#4ba8e8] dark:to-[#127cc1]">
               {typeof currentSectionData?.title === "object" ? (
                 <MDXRemote
                   {...(currentSectionData.title as MDXRemoteSerializeResult)}
@@ -253,16 +207,16 @@ export default function RootLayout({
 
             <div className="flex justify-center gap-6 mt-8">
               <motion.div whileHover="hover" variants={scaleHover}>
-                <Rocket className="text-3xl" />
+                <Rocket color={primaryColor} className="text-3xl" />
               </motion.div>
               <motion.div whileHover="hover" variants={scaleHover}>
-                <Cpu className="text-3xl" />
+                <Cpu color={primaryColor} className="text-3xl" />
               </motion.div>
               <motion.div whileHover="hover" variants={scaleHover}>
-                <Star className="text-3xl" />
+                <Star color={primaryColor} className="text-3xl" />
               </motion.div>
               <motion.div whileHover="hover" variants={scaleHover}>
-                <Zap className="text-3xl" />
+                <Zap color={primaryColor} className="text-3xl" />
               </motion.div>
             </div>
           </motion.div>
@@ -275,7 +229,7 @@ export default function RootLayout({
         {prevItem ? (
           <Link
             href={`/${prevItem.id}`}
-            className="flex gap-2 text-neutral-800 dark:text-neutral-200 hover:text-neutral-600"
+            className="flex gap-2 text-neutral-800 dark:text-neutral-200 hover:text-[#127cc1] dark:hover:text-[#4ba8e8]"
           >
             <div className="pt-2">
               <ChevronLeft size={32} />
@@ -292,7 +246,7 @@ export default function RootLayout({
         {nextItem ? (
           <Link
             href={`/${nextItem.id}`}
-            className="flex gap-2 text-right text-neutral-800 dark:text-neutral-200 hover:text-neutral-600"
+            className="flex gap-2 text-right text-neutral-800 dark:text-neutral-200 hover:text-[#127cc1] dark:hover:text-[#4ba8e8]"
           >
             <div>
               <p className="font-light text-neutral-500 text-sm">Next</p>
