@@ -254,13 +254,13 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
             <div className="flex-1 md:sticky top-15 h-full">
               <div className="space-y-4 border p-10 px-8 m-auto text-center rounded-2xl w-full">
                 {section.font.weights.map((weight) => (
-                  <p
+                  <div
                     key={weight}
                     className="text-2xl text-neutral-800 dark:text-neutral-200"
                     style={{ fontWeight: weight }}
                   >
                     {sampleText}
-                  </p>
+                  </div>
                 ))}
               </div>
             </div>
