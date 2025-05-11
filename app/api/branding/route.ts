@@ -491,8 +491,8 @@ const data = {
           componentItems: [
             {
               text: "**Build** <br/> The Future",
-              color: "#000000",
-              bg: "#FDB813",
+              color: "#FFFFFF",
+              bg: "#127cc1",
             },
             {
               text: "Challenge <br/> **Global Teams**",
@@ -500,13 +500,13 @@ const data = {
               bg: "#FFFFFF",
             },
             {
-              text: `<p className="text-[#FDB813]">FIRA 2025 </p> <br/>
+              text: `<p className="text-[#4ba8e8]">FIRA 2025 </p> <br/>
                    <p className="text-white font-bold">Starts Soon</p>`,
               color: "",
               bg: "#000000",
             },
             {
-              text: "Innovate <br/> **Win Big**",
+              text: `Innovate <br/> <p className="text-[#4ba8e8] font-bold">Win Big</p>`,
               color: "#000000",
               bg: "#FFFFFF",
             },

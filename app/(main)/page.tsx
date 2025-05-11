@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useData } from "@/hooks/DataProvider";
-import { ApiResponse } from "./type";
+import { ApiResponse } from "../type";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },

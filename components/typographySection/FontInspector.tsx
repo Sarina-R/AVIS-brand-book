@@ -1,14 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function FontInspector() {
   const [selectedGlyph, setSelectedGlyph] = useState("e");
+  const [fontSize, setFontSize] = useState(300);
+  const glyphRef = useRef(null);
 
   const capHeight = 710;
   const xHeight = 530;
   const descender = -150;
-  const fontSize = 300;
 
   const glyphs = [
     // Uppercase letters
@@ -176,12 +177,28 @@ export default function FontInspector() {
     setSelectedGlyph(glyph);
   };
 
+  useEffect(() => {
+    const updateFontSize = () => {
+      if (glyphRef.current) {
+        const computedStyle = window.getComputedStyle(glyphRef.current);
+        const computedFontSize = parseFloat(computedStyle.fontSize);
+        setFontSize(computedFontSize);
+      }
+    };
+
+    updateFontSize();
+
+    window.addEventListener("resize", updateFontSize);
+    return () => window.removeEventListener("resize", updateFontSize);
+  }, []);
+
   return (
-    <div className="lg:flex min-h-screen ">
-      <div className="flex-1 p-6 pt-12 sticky top-10 max-h-fit flex flex-col justify-center bg-white dark:bg-neutral-950">
-        <div className="relative w-full  flex justify-center">
+    <div className="md:flex min-h-screen px-4">
+      <div className="flex-1 py-4 sticky top-0 max-h-fit flex flex-col justify-center bg-white dark:bg-neutral-950">
+        <div className="relative w-full flex justify-center">
           <span
-            className="text-[300px] leading-none"
+            ref={glyphRef}
+            className="text-[300px] md:text-[400px] lg:text-[550px] leading-none"
             style={{ fontFamily: "Geist, sans-serif" }}
           >
             {selectedGlyph}
@@ -204,31 +221,43 @@ export default function FontInspector() {
             style={{ top: `${((1000 + descender) / 1000) * fontSize}px` }}
           />
 
-          <div className="absolute top-0 left-0 flex justify-between w-full text-xs">
-            <span>CAP HEIGHT</span>
+          <div
+            className="absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs"
+            style={{ top: `${(capHeight / 1000) * fontSize - 10}px` }}
+          >
+            <span>BASELINE</span>
             <span>{capHeight}</span>
           </div>
-          <div className="absolute top-[120px] left-0 flex justify-between w-full text-xs">
+          <div
+            className="absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs"
+            style={{ top: `${(xHeight / 1000) * fontSize - 10}px` }}
+          >
             <span>X-HEIGHT</span>
             <span>{xHeight}</span>
           </div>
-          <div className="absolute top-[190px] left-0 flex justify-between w-full text-xs">
-            <span>BASELINE</span>
+          <div
+            className="absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs"
+            style={{ top: `${(0 / 1000) * fontSize - 10}px` }}
+          >
+            <span>CAP HEIGHT</span>
             <span>0</span>
           </div>
-          <div className="absolute bottom-0 left-0 flex justify-between w-full text-xs">
+          <div
+            className="absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs"
+            style={{ top: `${((1000 + descender) / 1000) * fontSize - 10}px` }}
+          >
             <span>DESCENDER</span>
             <span>{descender}</span>
           </div>
         </div>
       </div>
 
-      <div className="flex-1 p-6">
-        <div className="grid grid-cols-10 gap-2">
+      <div className="flex-1">
+        <div className="grid xl:grid-cols-9 lg:grid-cols-8 grid-cols-5">
           {glyphs.map((glyph, index) => (
             <div
               key={index}
-              className="p-2 text-2xl text-center hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors flex justify-center h-12"
+              className="p-2 py-4 text-2xl lg:text-4xl text-center border hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors flex justify-center"
               onMouseEnter={() => handleGlyphSelect(glyph)}
               onClick={() => handleGlyphSelect(glyph)}
             >
