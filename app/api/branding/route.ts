@@ -26,14 +26,7 @@ const data = {
       primaryColor: "#127cc1",
       secondaryColor: "#000000",
       actionColor: "#FFFFFF",
-      otherColors: [
-        "#4ba8e8",
-        "#00c950",
-        "#737373",
-        "#00a6f4",
-        "#f0b100",
-        "#fb2c36",
-      ],
+      otherColors: ["#4ba8e8", "#00a6f4", "#737373", "#4D4D4D"],
     },
   },
   menu: {
@@ -365,7 +358,7 @@ const data = {
               name: "Brand Blue",
               shades: [
                 { id: 102, hex: "#004D87", name: "Dark Blue" },
-                { id: 103, hex: "#0080E0", name: "Light Blue" },
+                { id: 103, hex: "#4ba8e8", name: "Light Blue" },
                 { id: 104, hex: "#99C7E8", name: "Pale Blue" },
               ],
             },
