@@ -5,6 +5,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { Typography, TypographyPrinciplesSection } from "@/app/type";
 import { useMDXComponents, useMDXComponents1 } from "@/mdx-component";
+import FontInspector from "../typographySection/FontInspector";
 
 interface TypographySectionProps {
   section: Typography;
@@ -303,6 +304,8 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
           </div>
         )}
       </div>
+
+      <FontInspector />
 
       {customMDXComponent && (
         <MDXRemote {...customMDXComponent} components={mdxComponent} />

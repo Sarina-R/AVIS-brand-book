@@ -5,6 +5,7 @@ import {
   ToneOfVoice,
   DesignPrinciples,
   IdentityInUse,
+  Overview,
 } from "./mdx";
 
 const data = {
@@ -100,13 +101,15 @@ const data = {
   sections: [
     {
       type: "overview",
-      title: "Brand Introduction",
-      description: "AVIS",
+      title: "AVIS Engine Brand Overview",
+      description:
+        "Explore the AVIS Engine Brand Book and uncover our vision for revolutionizing event management. With innovative technology, seamless solutions, and a passion for creating impactful experiences, AVIS Engine empowers organizers to deliver exceptional events effortlessly.",
       pattern:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//18.png",
       img: "https://iran.firaworldcup.org/wp-content/uploads/2024/12/IRAN-FIRA-2025-1-1448x2048.png",
       video: "",
       items: {
+        MDXComponent: Overview,
         group: "introduction",
         title: "overview",
         desc: "Welcome to the **AVIS**, where innovation meets excellence in robotics and artificial intelligence. This prestigious competition will take place at the International Exhibition Center, a venue that embodies Iran’s commitment to hosting world-class events and fostering technological progress.",
@@ -469,13 +472,13 @@ const data = {
     {
       type: "typography",
       title: "Typography",
-      description: "Poppins",
+      description: "Geist",
       pattern:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/FIRA%20CUP%202025%20BRAND%20BOOK%20(7).svg",
       img: "",
       font: {
-        name: "Poppins",
-        weights: [500, 700],
+        name: "Geist",
+        weights: [300, 400, 700, 900],
         subsets: ["latin", "latin-ext"],
       },
       items: {
