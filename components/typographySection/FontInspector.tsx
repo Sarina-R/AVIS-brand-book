@@ -7,9 +7,9 @@ export default function FontInspector() {
   const [fontSize, setFontSize] = useState(300);
   const glyphRef = useRef(null);
 
-  const capHeight = 710;
-  const xHeight = 530;
-  const descender = -150;
+  const capHeight = 852;
+  const xHeight = 472;
+  const descender = -8;
 
   const glyphs = [
     // Uppercase letters
@@ -214,7 +214,7 @@ export default function FontInspector() {
           />
           <div
             className="absolute w-full border-t border-dashed border-black dark:border-white"
-            style={{ top: `${(0 / 1000) * fontSize}px` }}
+            style={{ top: `${(142 / 1000) * fontSize}px` }}
           />
           <div
             className="absolute w-full border-t border-dashed border-black dark:border-white"

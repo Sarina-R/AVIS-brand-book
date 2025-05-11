@@ -125,7 +125,7 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
   return (
     // <section className="p-4 md:p-10 max-w-6xl mx-auto space-y-28 mt-12 capitalize">
     <section className="space-y-28 capitalize py-28">
-      <div className="lg:h-screen">
+      <div className="lg:h-screen relative">
         <svg
           className="absolute top-0 left-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
@@ -148,9 +148,25 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
 
-        <h1 className="text-white p-10 text-9xl sm:text-[200px] md:text-[250px] lg:text-[350px] font-medium tracking-tighter leading-none">
-          {section.font.name}.
-        </h1>
+        <div className="relative inline-block">
+          {/* 710 */}
+          <div className="absolute top-[20%] left-0 right-0 border-t-1 border-dashed border-white" />
+
+          {/* 530 */}
+          <div className="absolute top-[37%] left-0 right-0 border-t-1 border-dashed border-white" />
+
+          <h1 className="text-white p-10 text-9xl sm:text-[200px] md:text-[250px] lg:text-[350px] font-medium tracking-tighter leading-none relative">
+            Geist.
+          </h1>
+
+          {/* 0 */}
+          <div className="absolute top-[75%] left-0 right-0 border-t-1 border-dashed border-white" />
+
+          {/* -150 */}
+          <div className="absolute top-[87%] left-0 right-0 border-t-1 border-dashed border-white" />
+
+          <div className="absolute top-[87%] left-0 right-0 border-t-1 border-dashed border-white" />
+        </div>
 
         <div className="absolute right-2 top-0 h-full flex flex-col justify-between text-white text-sm opacity-50">
           <span>710</span>
