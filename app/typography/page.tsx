@@ -11,7 +11,7 @@ const page = () => {
   return section ? (
     <TypographySection key={section.type} section={section} />
   ) : (
-    "loading"
+    "loading..."
   );
 };
 
