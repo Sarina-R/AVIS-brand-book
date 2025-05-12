@@ -155,6 +155,11 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
     return () => window.removeEventListener("resize", updateLines);
   }, []);
 
+  const numberArray: number[] = [530, 0, -150, 700];
+  // const numberArray: number[] = [700, 530, 0, -150];
+  // const lineLabels: string[] = ["Cap", "x-height", "Baseline", "Descender"];
+  const lineLabels: string[] = ["x-height", "Baseline", "Descender", "Cap"];
+
   const drawLine = (y: number, i: number) => (
     <div
       key={i}
@@ -167,7 +172,35 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
         borderTop: "2px dashed gray",
         zIndex: 10,
       }}
-    />
+    >
+      <span
+        style={{
+          position: "absolute",
+          right: "20px",
+          bottom: "0",
+          color: "black",
+          fontSize: "12px",
+          fontWeight: "light",
+          background: "white",
+          padding: "2px 6px",
+        }}
+      >
+        {/* <span
+        style={{
+          position: "absolute",
+          right: "10px",
+          top: "-12px",
+          color: "gray",
+          fontSize: "12px",
+          fontWeight: "bold",
+          background: "rgba(0, 0, 0, 0.7)",
+          padding: "2px 6px",
+          borderRadius: "4px",
+        }}
+      > */}
+        {lineLabels[i]}: {numberArray[i] !== undefined ? numberArray[i] : "N/A"}
+      </span>
+    </div>
   );
 
   return (
@@ -199,9 +232,9 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
         <div className="relative flex items-center justify-start w-full h-full">
           <h1
             ref={textRef}
-            className="text-white z-20 px-4 sm:px-10 text-[7rem] sm:text-[200px] md:text-[250px] lg:text-[350px] font-medium tracking-tighter leading-none relative"
+            className="text-white z-20 px-4 sm:px-10 text-[7rem] sm:text-[200px] md:text-[250px] lg:text-[350px] font-semibold tracking-tighter leading-none relative"
           >
-            Geist.
+            {section.font.name}.
           </h1>
 
           {lines.map(drawLine)}

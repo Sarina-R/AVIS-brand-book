@@ -2,7 +2,7 @@
 
 import TypographySection from "@/components/dynamic-section/TypographySection";
 import { useData } from "@/hooks/DataProvider";
-import { Skeleton } from "@/components/ui/skeleton"; // shadcn Skeleton component
+import { Skeleton } from "@/components/ui/skeleton";
 
 const Page = () => {
   const { data, loading } = useData();
