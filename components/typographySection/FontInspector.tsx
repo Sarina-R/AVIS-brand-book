@@ -7,9 +7,9 @@ export default function FontInspector() {
   const [fontSize, setFontSize] = useState(300);
   const glyphRef = useRef(null);
 
-  const capHeight = 852;
-  const xHeight = 472;
-  const descender = -8;
+  const capHeight = 855;
+  const xHeight = 310;
+  const descender = 15;
 
   const glyphs = [
     // Uppercase letters
@@ -196,31 +196,84 @@ export default function FontInspector() {
     <div className="md:flex min-h-screen px-4">
       <div className="flex-1 py-4 sticky top-0 max-h-fit flex flex-col justify-center bg-white dark:bg-neutral-950">
         <div className="relative w-full flex justify-center">
+          {/* Glyph */}
           <span
             ref={glyphRef}
-            className="text-[300px] md:text-[400px] lg:text-[550px] leading-none"
+            className="text-[300px] md:text-[400px] lg:text-[550px] leading-none z-10"
             style={{ fontFamily: "Geist, sans-serif" }}
           >
             {selectedGlyph}
           </span>
 
-          <div
-            className="absolute w-full border-t border-dashed border-black dark:border-white"
+          {/* Cap Height Line */}
+          <svg
+            className="absolute w-full h-[1px] text-black dark:text-white"
             style={{ top: `${(capHeight / 1000) * fontSize}px` }}
-          />
-          <div
-            className="absolute w-full border-t border-dashed border-black dark:border-white"
-            style={{ top: `${(xHeight / 1000) * fontSize}px` }}
-          />
-          <div
-            className="absolute w-full border-t border-dashed border-black dark:border-white"
-            style={{ top: `${(142 / 1000) * fontSize}px` }}
-          />
-          <div
-            className="absolute w-full border-t border-dashed border-black dark:border-white"
-            style={{ top: `${((1000 + descender) / 1000) * fontSize}px` }}
-          />
+            preserveAspectRatio="none"
+          >
+            <line
+              x1="0"
+              y1="0"
+              x2="100%"
+              y2="0"
+              stroke="gray"
+              strokeWidth="3"
+              strokeDasharray="4, 8"
+            />
+          </svg>
 
+          {/* X-Height Line */}
+          <svg
+            className="absolute w-full h-[1px] text-black dark:text-white"
+            style={{ top: `${(xHeight / 1000) * fontSize}px` }}
+            preserveAspectRatio="none"
+          >
+            <line
+              x1="0"
+              y1="0"
+              x2="100%"
+              y2="0"
+              stroke="gray"
+              strokeWidth="3"
+              strokeDasharray="4, 8"
+            />
+          </svg>
+
+          {/* Baseline Line */}
+          <svg
+            className="absolute w-full h-[1px] text-black dark:text-white"
+            style={{ top: `${(142 / 1000) * fontSize}px` }}
+            preserveAspectRatio="none"
+          >
+            <line
+              x1="0"
+              y1="0"
+              x2="100%"
+              y2="0"
+              stroke="gray"
+              strokeWidth="3"
+              strokeDasharray="4, 8"
+            />
+          </svg>
+
+          {/* Descender Line */}
+          <svg
+            className="absolute w-full h-[1px] text-black dark:text-white"
+            style={{ top: `${((1000 + descender) / 1000) * fontSize}px` }}
+            preserveAspectRatio="none"
+          >
+            <line
+              x1="0"
+              y1="0"
+              x2="100%"
+              y2="0"
+              stroke="gray"
+              strokeWidth="3"
+              strokeDasharray="4, 8"
+            />
+          </svg>
+
+          {/* Cap Height Label */}
           <div
             className="absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs"
             style={{ top: `${(capHeight / 1000) * fontSize - 10}px` }}
@@ -228,6 +281,8 @@ export default function FontInspector() {
             <span>BASELINE</span>
             <span>{capHeight}</span>
           </div>
+
+          {/* X-Height Label */}
           <div
             className="absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs"
             style={{ top: `${(xHeight / 1000) * fontSize - 10}px` }}
@@ -235,6 +290,8 @@ export default function FontInspector() {
             <span>X-HEIGHT</span>
             <span>{xHeight}</span>
           </div>
+
+          {/* Baseline Label */}
           <div
             className="absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs"
             style={{ top: `${(0 / 1000) * fontSize - 10}px` }}
@@ -242,6 +299,8 @@ export default function FontInspector() {
             <span>CAP HEIGHT</span>
             <span>0</span>
           </div>
+
+          {/* Descender Label */}
           <div
             className="absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs"
             style={{ top: `${((1000 + descender) / 1000) * fontSize - 10}px` }}

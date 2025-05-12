@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { Typography, TypographyPrinciplesSection } from "@/app/type";
@@ -15,6 +15,9 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
   const mdxComponent1 = useMDXComponents1({});
   const mdxComponent = useMDXComponents({});
   const sampleText = section.items.weights.sampleText;
+
+  const textRef = useRef<HTMLHeadingElement>(null);
+  const [lines, setLines] = useState<number[]>([]);
 
   const [lastKey, setLastKey] = useState<string>("A");
   const [serializedItems, setSerializedItems] = useState<
@@ -47,6 +50,27 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
   >([]);
 
   useEffect(() => {
+    const updateLines = () => {
+      if (!textRef.current) return;
+      const box = textRef.current.getBoundingClientRect();
+      const top = box.top + window.scrollY;
+      const height = box.height;
+
+      const cap = top * 1.2;
+      const xHeight = top + height * 0.3;
+      const baseline = top + height * 0.87;
+      const desc = top + height * 1.05;
+
+      setLines([cap, xHeight, baseline, desc]);
+    };
+
+    updateLines();
+    window.addEventListener("resize", updateLines);
+    return () => window.removeEventListener("resize", updateLines);
+  }, []);
+
+  // keyboard
+  useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       const isLatin = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>/?`~]$/.test(
         event.key
@@ -66,6 +90,7 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, []);
 
+  // serialize
   useEffect(() => {
     const serializeMDX = async (input: string | MDXRemoteSerializeResult) => {
       return typeof input === "string" ? await serialize(input) : input;
@@ -122,10 +147,25 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
     serializeAll();
   }, [section]);
 
+  const drawLine = (y: number, i: number) => (
+    <div
+      key={i}
+      style={{
+        position: "absolute",
+        top: `${y}px`,
+        left: 0,
+        width: "95vw",
+        height: "2px",
+        borderTop: "2px dashed gray",
+        zIndex: 20,
+      }}
+    />
+  );
+
   return (
-    // <section className="p-4 md:p-10 max-w-6xl mx-auto space-y-28 mt-12 capitalize">
-    <section className="space-y-28 capitalize py-28">
-      <div className="lg:h-screen relative">
+    <section className="space-y-28 pb-28">
+      <div className="relative h-[50vh] lg:h-screen">
+        {/* grid */}
         <svg
           className="absolute top-0 left-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
@@ -148,34 +188,26 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
 
-        <div className="relative inline-block">
-          {/* 710 */}
-          <div className="absolute top-[20%] left-0 right-0 border-t-1 border-dashed border-white" />
-
-          {/* 530 */}
-          <div className="absolute top-[37%] left-0 right-0 border-t-1 border-dashed border-white" />
-
-          <h1 className="text-white p-10 text-9xl sm:text-[200px] md:text-[250px] lg:text-[350px] font-medium tracking-tighter leading-none relative">
-            Geist.
+        <div className="relative flex items-center justify-start w-full h-full z-20">
+          <h1
+            ref={textRef}
+            className="text-white z-10 px-4 sm:px-10 text-[7rem] sm:text-[200px] md:text-[250px] lg:text-[350px] font-medium tracking-tighter leading-none relative"
+          >
+            {section.font.name}.
           </h1>
-
-          {/* 0 */}
-          <div className="absolute top-[75%] left-0 right-0 border-t-1 border-dashed border-white" />
-
-          {/* -150 */}
-          <div className="absolute top-[87%] left-0 right-0 border-t-1 border-dashed border-white" />
-
-          <div className="absolute top-[87%] left-0 right-0 border-t-1 border-dashed border-white" />
+          {lines.map(drawLine)}
         </div>
 
         <div className="absolute right-2 top-0 h-full flex flex-col justify-between text-white text-sm opacity-50">
-          <span>710</span>
-          <span>530</span>
-          <span>0</span>
-          <span>-150</span>
+          <span>Cap</span>
+          <span>x</span>
+          <span>Base</span>
+          <span>Desc</span>
         </div>
       </div>
-      <div className="px-14 space-y-28">
+
+      {/* prev KeyboardEvent + Font Features + Weights */}
+      <div className="md:px-14 px-6 space-y-28">
         <div className="md:flex md:space-x-8 space-y-10 md:space-y-0 gap-32">
           <div className="flex-1 space-y-4 md:sticky md:top-0 h-full">
             <div className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
@@ -280,7 +312,8 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
 
       <FontInspector />
 
-      <div className="px-14 space-y-28">
+      {/* Basic Typography Principles */}
+      <div className="md:px-14 px-6 space-y-28">
         {customMDXComponent && (
           <MDXRemote {...customMDXComponent} components={mdxComponent} />
         )}
