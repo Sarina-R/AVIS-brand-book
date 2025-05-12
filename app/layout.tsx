@@ -20,6 +20,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const initialTheme =
+    typeof window !== "undefined"
+      ? localStorage.getItem("user-theme") || "dark"
+      : "dark";
+
   return (
     <html
       lang="en"
@@ -32,7 +37,7 @@ export default function RootLayout({
           style={{ fontFamily: "var(--font-geist-sans)" }}
         >
           <DataProvider>
-            <ThemeProvider defaultTheme="dark">
+            <ThemeProvider defaultTheme={initialTheme}>
               <div>{children}</div>
             </ThemeProvider>
           </DataProvider>
