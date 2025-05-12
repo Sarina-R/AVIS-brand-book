@@ -12,6 +12,10 @@ interface TypographySectionProps {
 }
 
 const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
+  const capHeight = 680;
+  const xHeight = 140;
+  const baseline = 0;
+
   const mdxComponent1 = useMDXComponents1({});
   const mdxComponent = useMDXComponents({});
   const sampleText = section.items.weights.sampleText;
@@ -48,26 +52,6 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
   const [principlesSections, setPrinciplesSections] = useState<
     TypographyPrinciplesSection[]
   >([]);
-
-  useEffect(() => {
-    const updateLines = () => {
-      if (!textRef.current) return;
-      const box = textRef.current.getBoundingClientRect();
-      const top = box.top + window.scrollY;
-      const height = box.height;
-
-      const cap = top * 1.2;
-      const xHeight = top + height * 0.3;
-      const baseline = top + height * 0.87;
-      const desc = top + height * 1.05;
-
-      setLines([cap, xHeight, baseline, desc]);
-    };
-
-    updateLines();
-    window.addEventListener("resize", updateLines);
-    return () => window.removeEventListener("resize", updateLines);
-  }, []);
 
   // keyboard
   useEffect(() => {
@@ -147,6 +131,30 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
     serializeAll();
   }, [section]);
 
+  useEffect(() => {
+    const updateLines = () => {
+      if (!textRef.current) return;
+
+      const el = textRef.current;
+      const rect = el.getBoundingClientRect();
+      const computedStyle = window.getComputedStyle(el);
+      const fontSize = parseFloat(computedStyle.fontSize);
+
+      const offset = rect.top + window.scrollY;
+
+      const capY = offset + (1 - capHeight / 1000) * fontSize;
+      const xY = offset + (1 - xHeight / 1000) * fontSize;
+      const baselineY = offset + (1 - baseline / 1000) + fontSize;
+      const descY = offset - (-120 / 1000) * fontSize;
+
+      setLines([capY, xY, baselineY, descY]);
+    };
+
+    updateLines();
+    window.addEventListener("resize", updateLines);
+    return () => window.removeEventListener("resize", updateLines);
+  }, []);
+
   const drawLine = (y: number, i: number) => (
     <div
       key={i}
@@ -154,10 +162,10 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
         position: "absolute",
         top: `${y}px`,
         left: 0,
-        width: "95vw",
-        height: "2px",
+        width: "100%",
+        height: "1px",
         borderTop: "2px dashed gray",
-        zIndex: 20,
+        zIndex: 10,
       }}
     />
   );
@@ -165,7 +173,7 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
   return (
     <section className="space-y-28 pb-28">
       <div className="relative h-[50vh] lg:h-screen">
-        {/* grid */}
+        {/* Grid */}
         <svg
           className="absolute top-0 left-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
@@ -188,21 +196,15 @@ const TypographySection: React.FC<TypographySectionProps> = ({ section }) => {
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
 
-        <div className="relative flex items-center justify-start w-full h-full z-20">
+        <div className="relative flex items-center justify-start w-full h-full">
           <h1
             ref={textRef}
-            className="text-white z-10 px-4 sm:px-10 text-[7rem] sm:text-[200px] md:text-[250px] lg:text-[350px] font-medium tracking-tighter leading-none relative"
+            className="text-white z-20 px-4 sm:px-10 text-[7rem] sm:text-[200px] md:text-[250px] lg:text-[350px] font-medium tracking-tighter leading-none relative"
           >
-            {section.font.name}.
+            Geist.
           </h1>
-          {lines.map(drawLine)}
-        </div>
 
-        <div className="absolute right-2 top-0 h-full flex flex-col justify-between text-white text-sm opacity-50">
-          <span>Cap</span>
-          <span>x</span>
-          <span>Base</span>
-          <span>Desc</span>
+          {lines.map(drawLine)}
         </div>
       </div>
 
