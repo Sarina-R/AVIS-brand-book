@@ -12,7 +12,7 @@ export default function RootLayout({
   const { data } = useData();
   return (
     <div className="">
-      <div className="bg-neutral-950 w-[96vw] md:w-[98vw] absolute z-50">
+      <div className="bg-neutral-950 w-[96vw] md:w-[98vw] absolute flex justify-between items-center z-50">
         <Link href="/" className="">
           <Image
             height={100}
@@ -22,6 +22,12 @@ export default function RootLayout({
             className="cursor-pointer p-4"
           />
         </Link>
+        <div className="border-neutral-700 border bg-neutral-950 p-[0.2rem] rounded-full">
+          <div className="bg-neutral-200 text-black rounded-full px-2 py-1 text-center font-bold">
+            {data?.brand.font.name} Sans
+          </div>
+        </div>
+        <p className="p-4 text-neutral-300 text-sm">AVIS Engine Typography</p>
       </div>
       {children}
     </div>
