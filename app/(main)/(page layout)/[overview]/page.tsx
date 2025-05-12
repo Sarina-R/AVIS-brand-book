@@ -3,7 +3,7 @@
 import { Section } from "@/app/type";
 import { useData } from "@/hooks/DataProvider";
 import { usePathname } from "next/navigation";
-import { useMDXComponents } from "@/mdx-component";
+import { useMDXComponents, useMDXComponents1 } from "@/mdx-component";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import OverviewSection from "@/components/dynamic-section/OverviewSection";
 import StatementSection from "@/components/dynamic-section/StatementSection";
@@ -14,11 +14,32 @@ import DesignPrinciplesSection from "@/components/dynamic-section/DesignPrincipl
 import LogoSection from "@/components/dynamic-section/LogoSection";
 import ColorSection from "@/components/dynamic-section/ColorSection";
 import TypographySection from "@/components/dynamic-section/TypographySection";
+import { motion } from "framer-motion";
+import { Cpu, Rocket, Star, Zap } from "lucide-react";
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const scaleHover = {
+  hover: { scale: 1.05, transition: { duration: 0.3 } },
+};
+
+const lineDraw = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: {
+    pathLength: 1,
+    opacity: 1,
+    transition: { duration: 1.2, ease: "easeInOut" },
+  },
+};
 
 const Page = () => {
   const { data, loading } = useData();
   const pathname = usePathname();
   const mdxComponents = useMDXComponents({});
+  const mdxComponent1 = useMDXComponents1({});
 
   const isMDXSection = (
     section: Section
@@ -56,6 +77,9 @@ const Page = () => {
   }
 
   const section = data.sections.find((sec) => sec.type === currentType);
+
+  const primaryColor = data.brand.color.primaryColor;
+  const primaryDarkColor = data.brand.color.primaryDarkColor;
 
   const renderSection = () => {
     if (!section) {
@@ -151,7 +175,116 @@ const Page = () => {
     }
   };
 
-  return <div>{renderSection()}</div>;
+  return (
+    <div>
+      <div key={pathname} className="relative overflow-hidden">
+        <svg
+          className="absolute top-0 right-0 w-32 h-32 opacity-40 z-0"
+          viewBox="0 0 100 100"
+          fill="none"
+        >
+          <motion.path
+            d="M10 10 L90 10 L90 90"
+            strokeWidth="3"
+            initial="hidden"
+            animate="visible"
+            variants={lineDraw}
+            className={`stroke-[${primaryColor}] dark:stroke-[${primaryDarkColor}]`}
+          />
+        </svg>
+        <svg
+          className="absolute top-0 left-0 w-32 h-32 opacity-40 z-0"
+          viewBox="0 0 100 100"
+          fill="none"
+        >
+          <motion.path
+            d="M90 10 L10 10 L10 90"
+            strokeWidth="3"
+            initial="hidden"
+            animate="visible"
+            variants={lineDraw}
+            className={`stroke-[${primaryColor}] dark:stroke-[${primaryDarkColor}]`}
+          />
+        </svg>
+        <svg
+          className="absolute top-[74vh] right-0 w-32 h-32 opacity-40 z-0"
+          viewBox="0 0 100 100"
+          fill="none"
+        >
+          <motion.path
+            d="M10 90 L90 90 L90 10"
+            strokeWidth="3"
+            initial="hidden"
+            animate="visible"
+            variants={lineDraw}
+            className={`stroke-[${primaryColor}] dark:stroke-[${primaryDarkColor}]`}
+          />
+        </svg>
+        <svg
+          className="absolute top-[74vh] left-0 w-32 h-32 opacity-40 z-0"
+          viewBox="0 0 100 100"
+          fill="none"
+        >
+          <motion.path
+            d="M90 90 L10 90 L10 10"
+            strokeWidth="3"
+            initial="hidden"
+            animate="visible"
+            variants={lineDraw}
+            className={`stroke-[${primaryColor}] dark:stroke-[${primaryDarkColor}]`}
+          />
+        </svg>
+
+        <section className="relative min-h-screen flex items-center justify-center py-16 sm:px-15">
+          <motion.div
+            className="text-center max-w-3xl mx-auto px-4 z-10"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+          >
+            <h1 className="text-4xl md:text-5xl font-semibold mb-6">
+              {typeof section?.title === "object" ? (
+                <MDXRemote
+                  {...(section.title as MDXRemoteSerializeResult)}
+                  components={mdxComponent1}
+                />
+              ) : (
+                section?.title
+              )}
+            </h1>
+
+            <span className="text-base md:text-lg text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto">
+              {typeof section?.description === "object" ? (
+                <MDXRemote
+                  {...(section.description as MDXRemoteSerializeResult)}
+                  components={mdxComponent1}
+                />
+              ) : (
+                section?.description
+              )}
+            </span>
+
+            <div className="flex justify-center gap-6 mt-8">
+              <motion.div whileHover="hover" variants={scaleHover}>
+                <Rocket color={primaryColor} className="text-3xl" />
+              </motion.div>
+              <motion.div whileHover="hover" variants={scaleHover}>
+                <Cpu color={primaryColor} className="text-3xl" />
+              </motion.div>
+              <motion.div whileHover="hover" variants={scaleHover}>
+                <Star color={primaryColor} className="text-3xl" />
+              </motion.div>
+              <motion.div whileHover="hover" variants={scaleHover}>
+                <Zap color={primaryColor} className="text-3xl" />
+              </motion.div>
+            </div>
+          </motion.div>
+        </section>
+      </div>
+
+      {renderSection()}
+    </div>
+  );
 };
 
 export default Page;

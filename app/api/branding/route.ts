@@ -25,6 +25,7 @@ const data = {
     },
     color: {
       primaryColor: "#127cc1",
+      primaryDarkColor: "#4ba8e8",
       secondaryColor: "#000000",
       actionColor: "#FFFFFF",
       otherColors: ["#4ba8e8", "#00a6f4", "#737373", "#4D4D4D"],

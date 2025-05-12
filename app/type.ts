@@ -3,6 +3,7 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote/rsc";
 // Brand
 export interface Color {
   primaryColor: string;
+  primaryDarkColor: string;
   secondaryColor: string;
   actionColor: string;
   otherColors: string[];
