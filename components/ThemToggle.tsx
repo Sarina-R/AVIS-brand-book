@@ -13,7 +13,7 @@ export function ThemeToggle() {
   useEffect(() => {
     setMounted(true);
     if (!pathname.startsWith("/typography")) {
-      const userTheme = localStorage.getItem("user-theme") || "light";
+      const userTheme = localStorage.getItem("user-theme") || "dark";
       setTheme(userTheme);
     }
   }, [pathname, setTheme]);

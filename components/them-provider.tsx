@@ -17,7 +17,8 @@ export function ThemeProvider({ children, defaultTheme }: ThemeProviderProps) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("route-theme", "dark");
     } else {
-      const savedTheme = localStorage.getItem("user-theme") || defaultTheme;
+      const savedTheme =
+        localStorage.getItem("user-theme") || defaultTheme || "dark";
       document.documentElement.classList.toggle("dark", savedTheme === "dark");
       localStorage.setItem("route-theme", savedTheme);
     }

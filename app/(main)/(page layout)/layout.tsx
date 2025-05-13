@@ -17,7 +17,7 @@ export default function RootLayout({
   const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const { theme } = useTheme(); // Optional
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
