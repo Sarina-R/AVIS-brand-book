@@ -1,10 +1,17 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { Button } from "../ui/button";
 
 export default function FontInspector() {
-  const [selectedGlyph, setSelectedGlyph] = useState("e");
-  const [fontSize, setFontSize] = useState(300);
+  const [selectedGlyph, setSelectedGlyph] = useState<string>("e");
+  const [fontSize, setFontSize] = useState<number>(300);
+  const [fontWeight, setFontWeight] = useState<string>("400");
+  const [isResizing, setIsResizing] = useState<boolean>(false);
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
   const glyphRef = useRef(null);
 
   const capHeight = 855;
@@ -173,42 +180,109 @@ export default function FontInspector() {
     "÷",
   ];
 
+  const fontWeights = [
+    { value: "100", label: "Thin" },
+    { value: "200", label: "Ultra Light" },
+    { value: "300", label: "Light" },
+    { value: "400", label: "Regular" },
+    { value: "500", label: "Medium" },
+    { value: "600", label: "Semi Bold" },
+    { value: "700", label: "Bold" },
+    { value: "800", label: "Black" },
+    { value: "900", label: "Ultra Black" },
+  ];
+
+  const commonWeights = ["100", "300", "400", "700", "800"];
+
+  const handleWeightSelect = (weight: string) => {
+    setFontWeight(weight);
+  };
+
   const handleGlyphSelect = (glyph: string) => {
     setSelectedGlyph(glyph);
   };
 
   useEffect(() => {
-    const updateFontSize = () => {
+    const handleResize = () => {
+      setIsResizing(true); // Disable transitions during resizing
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight }); // Update window size
       if (glyphRef.current) {
         const computedStyle = window.getComputedStyle(glyphRef.current);
         const computedFontSize = parseFloat(computedStyle.fontSize);
-        setFontSize(computedFontSize);
+        setFontSize(computedFontSize); // Update fontSize dynamically
       }
     };
 
-    updateFontSize();
+    const resizeTimeout = setTimeout(() => setIsResizing(false), 200); // Re-enable transitions after resizing stops
+    window.addEventListener("resize", handleResize);
 
-    window.addEventListener("resize", updateFontSize);
-    return () => window.removeEventListener("resize", updateFontSize);
-  }, []);
+    return () => {
+      clearTimeout(resizeTimeout);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [windowSize]); // Add windowSize to the dependency array
 
   return (
     <div className="md:flex min-h-screen px-4">
       <div className="flex-1 py-4 sticky top-0 max-h-fit flex flex-col justify-center bg-white dark:bg-neutral-950">
+        <div className="mb-8 px-6">
+          {/* Tabs */}
+          <div className="md:flex space-x-3 mb-6 hidden justify-center">
+            {commonWeights.map((weight) => {
+              const weightObj = fontWeights.find((w) => w.value === weight);
+              return (
+                <Button
+                  key={weight}
+                  className={`px-5 py-2 text-lg font-medium rounded-lg  z-30 ${
+                    fontWeight === weight
+                      ? "bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white"
+                      : "bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 hover:shadow-md"
+                  }`}
+                  onClick={() => handleWeightSelect(weight)}
+                >
+                  {weightObj?.label}
+                </Button>
+              );
+            })}
+          </div>
+          {/* Dropdown */}
+          <select
+            value={fontWeight}
+            onChange={(e) => handleWeightSelect(e.target.value)}
+            className="w-full md:hidden px-4 py-2 text-sm border rounded-lg bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white border-neutral-300 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-800"
+          >
+            {fontWeights.map((weight) => (
+              <option key={weight.value} value={weight.value}>
+                {weight.label} ({weight.value})
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="relative w-full flex justify-center">
           {/* Glyph */}
           <span
             ref={glyphRef}
-            className="text-[300px] md:text-[400px] lg:text-[550px] leading-none z-10"
-            style={{ fontFamily: "Geist, sans-serif" }}
+            key={selectedGlyph}
+            className={`text-[300px] md:text-[400px] lg:text-[550px] leading-none z-10 ${
+              isResizing ? "" : "transition-all duration-300"
+            }`}
+            style={{
+              fontWeight,
+              opacity: 1,
+              transform: "scale(1)",
+            }}
           >
             {selectedGlyph}
           </span>
 
-          {/* Cap Height Line */}
+          {/* Lines */}
           <svg
-            className="absolute w-full h-[1px] text-black dark:text-white"
-            style={{ top: `${(capHeight / 1000) * fontSize}px` }}
+            className={`absolute w-full h-[1px] text-black dark:text-white ${
+              isResizing ? "" : "transition-transform duration-300"
+            }`}
+            style={{
+              transform: `translateY(${(capHeight / 1000) * fontSize}px)`,
+            }}
             preserveAspectRatio="none"
           >
             <line
@@ -222,10 +296,13 @@ export default function FontInspector() {
             />
           </svg>
 
-          {/* X-Height Line */}
           <svg
-            className="absolute w-full h-[1px] text-black dark:text-white"
-            style={{ top: `${(xHeight / 1000) * fontSize}px` }}
+            className={`absolute w-full h-[1px] text-black dark:text-white ${
+              isResizing ? "" : "transition-transform duration-300"
+            }`}
+            style={{
+              transform: `translateY(${(xHeight / 1000) * fontSize}px)`,
+            }}
             preserveAspectRatio="none"
           >
             <line
@@ -239,10 +316,13 @@ export default function FontInspector() {
             />
           </svg>
 
-          {/* Baseline Line */}
           <svg
-            className="absolute w-full h-[1px] text-black dark:text-white"
-            style={{ top: `${(142 / 1000) * fontSize}px` }}
+            className={`absolute w-full h-[1px] text-black dark:text-white ${
+              isResizing ? "" : "transition-transform duration-300"
+            }`}
+            style={{
+              transform: `translateY(${(142 / 1000) * fontSize}px)`,
+            }}
             preserveAspectRatio="none"
           >
             <line
@@ -256,10 +336,15 @@ export default function FontInspector() {
             />
           </svg>
 
-          {/* Descender Line */}
           <svg
-            className="absolute w-full h-[1px] text-black dark:text-white"
-            style={{ top: `${((1000 + descender) / 1000) * fontSize}px` }}
+            className={`absolute w-full h-[1px] text-black dark:text-white ${
+              isResizing ? "" : "transition-transform duration-300"
+            }`}
+            style={{
+              transform: `translateY(${
+                ((1000 + descender) / 1000) * fontSize
+              }px)`,
+            }}
             preserveAspectRatio="none"
           >
             <line
@@ -273,37 +358,52 @@ export default function FontInspector() {
             />
           </svg>
 
-          {/* Cap Height Label */}
+          {/* Labels */}
           <div
-            className="absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs"
-            style={{ top: `${(capHeight / 1000) * fontSize - 10}px` }}
+            className={`absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs ${
+              isResizing ? "" : "transition-transform duration-300"
+            }`}
+            style={{
+              transform: `translateY(${(capHeight / 1000) * fontSize - 10}px)`,
+            }}
           >
             <span>BASELINE</span>
             <span>{capHeight}</span>
           </div>
 
-          {/* X-Height Label */}
           <div
-            className="absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs"
-            style={{ top: `${(xHeight / 1000) * fontSize - 10}px` }}
+            className={`absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs ${
+              isResizing ? "" : "transition-transform duration-300"
+            }`}
+            style={{
+              transform: `translateY(${(xHeight / 1000) * fontSize - 10}px)`,
+            }}
           >
             <span>X-HEIGHT</span>
             <span>{xHeight}</span>
           </div>
 
-          {/* Baseline Label */}
           <div
-            className="absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs"
-            style={{ top: `${(0 / 1000) * fontSize - 10}px` }}
+            className={`absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs ${
+              isResizing ? "" : "transition-transform duration-300"
+            }`}
+            style={{
+              transform: `translateY(${(0 / 1000) * fontSize - 10}px)`,
+            }}
           >
             <span>CAP HEIGHT</span>
             <span>0</span>
           </div>
 
-          {/* Descender Label */}
           <div
-            className="absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs"
-            style={{ top: `${((1000 + descender) / 1000) * fontSize - 10}px` }}
+            className={`absolute pr-1 pb-2 left-0 flex justify-between w-full text-xs ${
+              isResizing ? "" : "transition-transform duration-300"
+            }`}
+            style={{
+              transform: `translateY(${
+                ((1000 + descender) / 1000) * fontSize - 10
+              }px)`,
+            }}
           >
             <span>DESCENDER</span>
             <span>{descender}</span>
