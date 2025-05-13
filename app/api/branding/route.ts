@@ -1,12 +1,5 @@
 import { NextResponse } from "next/server";
-import {
-  BrandIdentity,
-  Tagline,
-  ToneOfVoice,
-  DesignPrinciples,
-  IdentityInUse,
-  Overview,
-} from "./mdx";
+import { Tagline, DesignPrinciples, IdentityInUse, Overview } from "./mdx";
 
 const data = {
   brand: {

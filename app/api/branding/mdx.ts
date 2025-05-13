@@ -2,44 +2,6 @@ export const Overview = `
 overview
 `;
 
-export const BrandIdentity = `<div className="flex flex-col lg:flex-row justify-between p-10 min-h-[300px] text-sm">
-      <div className="border rounded-2xl m-3 flex-1 text-center px-5 dark:bg-neutral-900">
-        <img
-          src="https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//portfolio-svgrepo-com.svg"
-          alt="Vision Icon"
-          className="w-15 h-15 py-2 mt-2 mx-auto mb-3 dark:invert"
-        />
-        <h2 className="sm:text-2xl text-lg font-bold sm:mb-4 mb-2">Vision</h2>
-        <p className="leading-6 sm:text-sm text-xs">
-          To be the leading global stage for robotics and artificial intelligence, shaping a world where technological innovation transforms industries, enriches lives, and fosters sustainable progress for humanity.
-        </p>
-      </div>
-
-      <div className="border rounded-2xl m-3 flex-1 text-center px-5 dark:bg-neutral-900">
-        <img
-          src="https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//file-2-svgrepo-com.svg"
-          alt="Mission Icon"
-          className="w-15 h-15 py-2 mt-2 mx-auto mb-3 dark:invert"
-        />
-        <h2 className="sm:text-2xl text-lg font-bold sm:mb-4 mb-2">Mission</h2>
-        <p className="leading-6 sm:text-sm text-xs">
-          To inspire and empower the global robotics community by creating a dynamic platform for innovation, collaboration, and excellence. FIRA CUP 2025 is committed to advancing technology, nurturing young talent, and pushing the boundaries of what robotics can achieve for a better future.
-        </p>
-      </div>
-
-      <div className="border rounded-2xl m-3 flex-1 text-center px-5 dark:bg-neutral-900">
-        <img
-          src="https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi//trophy-svgrepo-com.svg"
-          alt="Target Icon"
-          className="w-15 h-15 py-2 mt-2 mx-auto mb-3 dark:invert"
-        />
-        <h2 className="sm:text-2xl text-lg font-bold sm:mb-4 mb-2">Target</h2>
-        <p className="leading-6 sm:text-sm text-xs">
-          Develop robust relationships with customers across diverse market segments, encompassing individual consumers and beyond.
-        </p>
-      </div>
-    </div>`;
-
 export const Tagline = `<section className="relative bg-[#127cc1] dark:bg-[#127cc1]/30 text-white py-20 overflow-hidden">
   <svg className="absolute top-0 left-0 w-full h-full opacity-60 dark:opacity-20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
     <defs>
@@ -86,39 +48,6 @@ export const Tagline = `<section className="relative bg-[#127cc1] dark:bg-[#127c
     </div>
   </div>
 </section>`;
-
-export const ToneOfVoice = `<div className="w-full px-6 py-14 space-y-16">
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-    
-    <div className="relative bg-gradient-to-br from-zinc-100 to-white dark:from-zinc-900 dark:to-zinc-800 p-8 rounded-3xl shadow-md border hover:scale-[1.02] transition-all duration-300">
-      <div className="text-center">
-        <img
-          src="https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/icons/Copy%20of%20FIRA%20CANADA%20BRAND%20BOOK%20(2).png"
-          alt="Trustworthy Icon"
-          className="w-20 h-20 mx-auto mb-5 rounded-full border-4"
-        />
-        <h3 className="text-2xl font-semibold mb-2">Trustworthy</h3>
-        <p className="text-neutral-600 dark:text-neutral-300 text-sm leading-6">
-          <strong>AVIS</strong> communicates with integrity and transparency, ensuring our audience feels secure in our words, actions, and innovations.
-        </p>
-      </div>
-    </div>
-
-    <div className="relative bg-gradient-to-br from-zinc-100 to-white dark:from-zinc-900 dark:to-zinc-800 p-8 rounded-3xl shadow-md border hover:scale-[1.02] transition-all duration-300">
-      <div className="text-center">
-        <img
-          src="https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/icons/Copy%20of%20FIRA%20CANADA%20BRAND%20BOOK%20(1).png"
-          alt="Innovative Icon"
-          className="w-20 h-20 mx-auto mb-5 rounded-full border-4"
-        />
-        <h3 className="text-2xl font-semibold mb-2">Innovative</h3>
-        <p className="text-neutral-600 dark:text-neutral-300 text-sm leading-6">
-          We bring energy and originality to every message—constantly pushing the boundaries of what’s possible in robotics and education.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>`;
 
 export const Mascot = `<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
   <div className="relative rounded-2xl p-6 sm:p-8 bg-[#FDB813]">
