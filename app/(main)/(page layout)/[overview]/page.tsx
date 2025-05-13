@@ -16,6 +16,7 @@ import ColorSection from "@/components/dynamic-section/ColorSection";
 import TypographySection from "@/components/dynamic-section/TypographySection";
 import { motion } from "framer-motion";
 import { Cpu, Rocket, Star, Zap } from "lucide-react";
+import { useTheme } from "next-themes";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -40,6 +41,9 @@ const Page = () => {
   const pathname = usePathname();
   const mdxComponents = useMDXComponents({});
   const mdxComponent1 = useMDXComponents1({});
+
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   const isMDXSection = (
     section: Section
@@ -192,7 +196,9 @@ const Page = () => {
             initial="hidden"
             animate="visible"
             variants={lineDraw}
-            className={`stroke-[${primaryColor}] dark:stroke-[${primaryDarkColor}]`}
+            style={{
+              stroke: isDark ? primaryDarkColor : primaryColor,
+            }}
           />
         </svg>
         <svg
@@ -206,7 +212,9 @@ const Page = () => {
             initial="hidden"
             animate="visible"
             variants={lineDraw}
-            className={`stroke-[${primaryColor}] dark:stroke-[${primaryDarkColor}]`}
+            style={{
+              stroke: isDark ? primaryDarkColor : primaryColor,
+            }}
           />
         </svg>
         <svg
@@ -220,7 +228,9 @@ const Page = () => {
             initial="hidden"
             animate="visible"
             variants={lineDraw}
-            className={`stroke-[${primaryColor}] dark:stroke-[${primaryDarkColor}]`}
+            style={{
+              stroke: isDark ? primaryDarkColor : primaryColor,
+            }}
           />
         </svg>
         <svg
@@ -234,7 +244,9 @@ const Page = () => {
             initial="hidden"
             animate="visible"
             variants={lineDraw}
-            className={`stroke-[${primaryColor}] dark:stroke-[${primaryDarkColor}]`}
+            style={{
+              stroke: isDark ? primaryDarkColor : primaryColor,
+            }}
           />
         </svg>
 

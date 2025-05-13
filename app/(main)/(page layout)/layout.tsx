@@ -4,8 +4,9 @@ import { useData } from "@/hooks/DataProvider";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useTheme } from "next-themes";
 
 export default function RootLayout({
   children,
@@ -15,10 +16,38 @@ export default function RootLayout({
   const { data, loading } = useData();
   const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const { theme } = useTheme(); // Optional
 
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  const parallaxValues = useMemo(() => {
+    const offsetX = mousePos.x - window.innerWidth / 2;
+    const offsetY = mousePos.y - window.innerHeight / 2;
+
+    return {
+      x1: offsetX * 0.07,
+      y1: offsetY * 0.07,
+      x2: offsetX * 0.08,
+      y2: offsetY * 0.08,
+      x3: offsetX * -0.06,
+      y3: offsetY * -0.06,
+    };
+  }, [mousePos]);
+
+  const blendMode =
+    theme === "light" ? "mix-blend-multiply" : "mix-blend-lighten";
+  const commonClass =
+    "pointer-events-none absolute rounded-full blur-3xl transition-transform duration-75";
 
   if (!isMounted || loading || !data) {
     return (
@@ -81,6 +110,34 @@ export default function RootLayout({
 
   return (
     <div className="p-2">
+      <div
+        className={`${commonClass} w-96 h-96 opacity-20 lg:block hidden ${blendMode}`}
+        style={{
+          backgroundColor: data.brand.color.primaryColor,
+          transform: `translate(${parallaxValues.x1}px, ${parallaxValues.y1}px)`,
+          top: "5%",
+          left: "60%",
+        }}
+      />
+      <div
+        className={`${commonClass} w-72 h-72 opacity-15 ${blendMode}`}
+        style={{
+          backgroundColor: data.brand.color.primaryColor,
+          transform: `translate(${parallaxValues.x2}px, ${parallaxValues.y2}px)`,
+          bottom: "5%",
+          right: "10%",
+        }}
+      />
+      <div
+        className={`${commonClass} w-60 h-60 opacity-20 ${blendMode}`}
+        style={{
+          backgroundColor: data.brand.color.primaryColor,
+          transform: `translate(${parallaxValues.x3}px, ${parallaxValues.y3}px)`,
+          top: "20%",
+          left: "25%",
+        }}
+      />
+
       <div id="page-content" className="px-4">
         {children}
       </div>
