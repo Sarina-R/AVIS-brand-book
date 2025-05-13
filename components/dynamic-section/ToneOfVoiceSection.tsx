@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { JSX } from "react";
 import Tilt from "react-parallax-tilt";
-import { MessageCircle, PenTool, Sparkles, Volume2 } from "lucide-react";
+import { ToneItem, ToneOfVoice } from "@/app/type";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { useMDXComponents1 } from "@/mdx-component";
+import * as LucideIcons from "lucide-react";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -17,59 +19,40 @@ const glowPulse = {
   },
 };
 
-interface ToneItem {
-  title: string;
-  desc: string;
-  icon: JSX.Element;
-}
-
 export default function ToneOfVoiceSection({
   primaryColor,
+  primaryDarkColor,
+  section,
 }: {
   primaryColor: string;
+  primaryDarkColor: string;
+  section: ToneOfVoice;
 }) {
-  const toneItems: ToneItem[] = [
-    {
-      title: "Clear & Precise",
-      desc: "Our communication is sharp and concise, distilling complex AI and robotics concepts into clear, impactful messages.",
-      icon: (
-        <PenTool
-          color={primaryColor}
-          className="text-3xl dark:text-[#4ba8e8]"
-        />
-      ),
-    },
-    {
-      title: "Confident & Visionary",
-      desc: "We speak with bold assurance, painting a vivid picture of a future shaped by intelligent technology.",
-      icon: (
-        <Sparkles
-          color={primaryColor}
-          className="text-3xl dark:text-[#4ba8e8]"
-        />
-      ),
-    },
-    {
-      title: "Engaging & Human",
-      desc: "Our voice resonates with warmth and relatability, making advanced tech feel approachable and inspiring.",
-      icon: (
-        <MessageCircle
-          color={primaryColor}
-          className="text-3xl dark:text-[#4ba8e8]"
-        />
-      ),
-    },
-    {
-      title: "Inspirational",
-      desc: "We ignite curiosity and ambition, motivating others to join us in revolutionizing the world through innovation.",
-      icon: (
-        <Volume2
-          color={primaryColor}
-          className="text-3xl dark:text-[#4ba8e8]"
-        />
-      ),
-    },
-  ];
+  const mdxComponent1 = useMDXComponents1({});
+  const toneItems: ToneItem[] = section.items.toneItems;
+
+  const IconRenderer = ({
+    iconName,
+    color,
+  }: {
+    iconName: string;
+    color: string;
+  }) => {
+    const iconComponent = LucideIcons[iconName as keyof typeof LucideIcons];
+
+    if (
+      typeof iconComponent === "function" ||
+      (typeof iconComponent === "object" && iconComponent !== null)
+    ) {
+      const Icon = iconComponent as React.FC<{
+        color?: string;
+        className?: string;
+      }>;
+      return <Icon color={color} className="text-3xl dark:text-[#4ba8e8]" />;
+    }
+
+    return null;
+  };
 
   return (
     <div className="relative overflow-hidden">
@@ -90,7 +73,7 @@ export default function ToneOfVoiceSection({
               stroke="currentColor"
               strokeWidth="1"
               color={primaryColor}
-              className="dark:text-[#4ba8e8]"
+              className={`"dark:text-[${primaryDarkColor}]"`}
             />
           </pattern>
         </defs>
@@ -100,15 +83,22 @@ export default function ToneOfVoiceSection({
       <section className="py-20 relative">
         <div className="container mx-auto px-4 z-10">
           <motion.h2
-            // style={{ color: primaryColor }}
-            className="text-4xl font-bold text-center mb-16 bg-clip-text dark:text-transparent text-[#4ba8e8] dark:bg-gradient-to-r dark:from-[#4ba8e8] dark:to-[#127cc1]"
+            className={`text-4xl font-bold text-center mb-16 bg-clip-text dark:text-transparent dark:bg-gradient-to-r`}
+            style={{
+              color: primaryDarkColor,
+              backgroundImage: `linear-gradient(to right, ${primaryDarkColor}, ${primaryColor})`,
+            }}
             initial="hidden"
             whileInView="visible"
             variants={fadeIn}
             viewport={{ once: true }}
           >
-            How We Speak
+            <MDXRemote
+              {...(section.items.title as MDXRemoteSerializeResult)}
+              components={mdxComponent1}
+            />
           </motion.h2>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {toneItems.map((item, index) => (
               <Tilt
@@ -131,7 +121,10 @@ export default function ToneOfVoiceSection({
                 >
                   <div className="flex items-center gap-4 mb-4">
                     <motion.div animate="animate" variants={glowPulse}>
-                      {item.icon}
+                      <IconRenderer
+                        iconName={item.icon as string}
+                        color={primaryColor}
+                      />
                     </motion.div>
                     <h3 className="text-xl font-semibold text-neutral-800 dark:text-white">
                       {item.title}

@@ -215,27 +215,33 @@ const data = {
       pattern:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/FIRA%20CUP%202025%20BRAND%20BOOK%20(7).svg",
       img: "",
+      style: 1,
       items: {
-        MDXComponent: ToneOfVoice,
-        title: "",
+        MDXComponent: "ToneOfVoice",
+        title: "How We Speak",
         desc: "Our brand voice combines professionalism and friendliness to prioritize exceptional customer service. It remains adaptable to different contexts and audiences.",
-        sliderContent: [
+        toneItems: [
           {
-            id: "1001",
-            svg: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/icons/Copy%20of%20FIRA%20CANADA%20BRAND%20BOOK%20(2).png",
-            title: "Trustworthy",
-            description:
-              "**AVIS** demonstrates *trustworthiness* and *authority* in all our communications.",
+            title: "Clear & Precise",
+            desc: "Our communication is sharp and concise, distilling complex AI and robotics concepts into clear, impactful messages.",
+            icon: "PenTool",
           },
           {
-            id: "1002",
-            svg: "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/icons/Copy%20of%20FIRA%20CANADA%20BRAND%20BOOK%20(1).png",
-            title: "Innovative",
-            description: `As a **pioneering company**, we adopt an *energetic* and *dynamic* tone in our communications.`,
+            title: "Confident & Visionary",
+            desc: "We speak with bold assurance, painting a vivid picture of a future shaped by intelligent technology.",
+            icon: "Sparkles",
+          },
+          {
+            title: "Engaging & Human",
+            desc: "Our voice resonates with warmth and relatability, making advanced tech feel approachable and inspiring.",
+            icon: "MessageCircle",
+          },
+          {
+            title: "Inspirational",
+            desc: "We ignite curiosity and ambition, motivating others to join us in revolutionizing the world through innovation.",
+            icon: "Volume2",
           },
         ],
-
-        style: 1,
       },
     },
     {

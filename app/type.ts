@@ -1,5 +1,4 @@
 import { MDXRemoteSerializeResult } from "next-mdx-remote/rsc";
-import { JSX } from "react";
 
 // Brand
 export interface Color {
@@ -125,18 +124,17 @@ export interface BrandPrism {
 }
 
 // tone of voice
-export interface SliderContent {
-  id: string;
-  svg: string;
-  title: string | MDXRemoteSerializeResult;
-  description: string | MDXRemoteSerializeResult;
+export interface ToneItem {
+  title: string;
+  desc: string;
+  icon: string;
 }
 
 export interface TonOfVoiceItems {
   MDXComponent?: string | MDXRemoteSerializeResult;
   title: string | MDXRemoteSerializeResult;
   desc: string | MDXRemoteSerializeResult;
-  sliderContent: SliderContent[];
+  toneItems: ToneItem[];
 }
 
 export interface ToneOfVoice {
