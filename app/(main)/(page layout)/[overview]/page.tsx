@@ -98,6 +98,7 @@ const Page = () => {
           return (
             <StatementSection
               key={section.type}
+              section={section}
               primaryColor={data.brand.color.primaryColor}
             />
           );

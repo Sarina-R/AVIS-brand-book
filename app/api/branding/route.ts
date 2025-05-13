@@ -78,7 +78,7 @@ const data = {
     },
     {
       title: "Typography",
-      href: "https://vercel.com/font",
+      href: "/typography",
       type: "component",
       desc: "Font scale, styles, and usage guidance powered by Geist.",
     },
@@ -123,20 +123,35 @@ const data = {
       type: "statement",
       title: "AVIS: Innovate, Automate, Inspire",
       description:
-        "AVIS is a leader in robotics and artificial intelligence, dedicated to creating intelligent systems that empower humanity. Our brand embodies innovation, precision, and a commitment to pushing technological boundaries.,",
+        "AVIS is a leader in robotics and artificial intelligence, dedicated to creating intelligent systems that empower humanity. Our brand embodies innovation, precision, and a commitment to pushing technological boundaries.",
       pattern:
         "https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/harchi/FIRA%20CUP%202025%20BRAND%20BOOK%20(7).svg",
       img: "",
       video: "",
       items: {
-        MDXComponent: BrandIdentity,
-        title: "What **leads** us to the idea of dynamic identity:",
-        items: ["Vision", "Mission", "Target"],
-        desc: `AVIS represents global innovation in robotics and AI, uniting
-              visionaries to challenge boundaries and inspire progress. It’s a platform where
-              creativity meets technology, shaping the future of robotics.`,
+        title: "Our Mission",
+        desc: `At AVIS, our mission is to architect a future where robotics and AI seamlessly integrate with human potential, driving progress and solving global challenges through innovation and collaboration.`,
+        items: [
+          {
+            title: "Innovation",
+            desc: "Pushing the boundaries of robotics and AI to create groundbreaking solutions.",
+            link: "https://avisengine.com/innovation",
+            icon: "code",
+          },
+          {
+            title: "Collaboration",
+            desc: "Fostering partnerships to amplify human and machine potential.",
+            link: "https://events.avisengine.com",
+            icon: "globe",
+          },
+          {
+            title: "Precision",
+            desc: "Engineering with accuracy to deliver reliable, impactful technology.",
+            link: "https://avisengine.com/technology",
+            icon: "zap",
+          },
+        ],
       },
-
       style: 1,
     },
     {

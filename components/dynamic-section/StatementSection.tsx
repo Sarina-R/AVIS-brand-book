@@ -1,9 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { JSX, useEffect, useState } from "react";
+import React, { JSX, useEffect, useState } from "react";
 import Particles from "react-tsparticles";
 import { Zap, Code, Globe } from "lucide-react";
+import { Statement, ValueItem } from "@/app/type";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { useMDXComponents1 } from "@/mdx-component";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -28,59 +31,25 @@ const glowPulse = {
   },
 };
 
-interface ValueItem {
-  title: string;
-  desc: string;
-  link: string;
-  icon: JSX.Element;
-}
-
 export default function StatementSection({
   primaryColor,
+  section,
 }: {
   primaryColor: string;
+  section: Statement;
 }) {
   const [isMounted, setIsMounted] = useState<boolean>(false);
+  const mdxComponent1 = useMDXComponents1({});
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  const valueItems: ValueItem[] = [
-    {
-      title: "Innovation",
-      desc: "Pushing the boundaries of robotics and AI to create groundbreaking solutions.",
-      link: "https://avisengine.com/innovation",
-      icon: (
-        <Code
-          className="text-2xl dark:text-[#4ba8e8]"
-          style={{ color: primaryColor }}
-        />
-      ),
-    },
-    {
-      title: "Collaboration",
-      desc: "Fostering partnerships to amplify human and machine potential.",
-      link: "https://events.avisengine.com",
-      icon: (
-        <Globe
-          className="text-2xl dark:text-[#4ba8e8]"
-          style={{ color: primaryColor }}
-        />
-      ),
-    },
-    {
-      title: "Precision",
-      desc: "Engineering with accuracy to deliver reliable, impactful technology.",
-      link: "https://avisengine.com/technology",
-      icon: (
-        <Zap
-          className="text-2xl dark:text-[#4ba8e8]"
-          style={{ color: primaryColor }}
-        />
-      ),
-    },
-  ];
+  const iconMap: Record<string, JSX.Element> = {
+    code: <Code className="text-2xl" />,
+    globe: <Globe className="text-2xl" />,
+    zap: <Zap className="text-2xl" />,
+  };
 
   return (
     <div className="relative overflow-hidden">
@@ -150,7 +119,12 @@ export default function StatementSection({
             variants={fadeIn}
             viewport={{ once: true }}
           >
-            Our Mission
+            {section.items.title && (
+              <MDXRemote
+                {...(section.items.title as MDXRemoteSerializeResult)}
+                components={mdxComponent1}
+              />
+            )}
           </motion.h2>
           <motion.p
             className="text-lg text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto text-center leading-relaxed"
@@ -178,7 +152,7 @@ export default function StatementSection({
             Our Values & Vision
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {valueItems.map((item: ValueItem, index: number) => (
+            {section.items.items.map((item: ValueItem, index: number) => (
               <motion.div
                 key={index}
                 className="relative bg-white/80 dark:bg-neutral-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-[#4ba8e8]/50 shadow-lg hover:shadow-lg transition-shadow"
@@ -199,7 +173,10 @@ export default function StatementSection({
                 />
                 <div className="flex items-center gap-4 mb-4">
                   <motion.div animate="animate" variants={glowPulse}>
-                    {item.icon}
+                    {React.cloneElement(iconMap[item.icon] || <Code />, {
+                      style: { color: primaryColor },
+                      className: "text-2xl dark:text-[#4ba8e8]",
+                    })}
                   </motion.div>
                   <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
                     {item.title}

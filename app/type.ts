@@ -1,4 +1,5 @@
 import { MDXRemoteSerializeResult } from "next-mdx-remote/rsc";
+import { JSX } from "react";
 
 // Brand
 export interface Color {
@@ -72,11 +73,18 @@ export interface Overview {
 }
 
 // Statement
+export interface ValueItem {
+  title: string;
+  desc: string;
+  link: string;
+  icon: string;
+}
+
 export interface StatementItems {
   MDXComponent?: string | MDXRemoteSerializeResult;
   title: string | MDXRemoteSerializeResult;
   desc: string | MDXRemoteSerializeResult;
-  items: string[];
+  items: ValueItem[];
   content?: [];
 }
 
