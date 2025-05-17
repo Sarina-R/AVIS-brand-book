@@ -203,6 +203,14 @@ export default function FontInspector() {
   };
 
   useEffect(() => {
+    if (glyphRef.current) {
+      const computedStyle = window.getComputedStyle(glyphRef.current);
+      const computedFontSize = parseFloat(computedStyle.fontSize);
+      setFontSize(computedFontSize);
+    }
+  }, []);
+
+  useEffect(() => {
     const handleResize = () => {
       setIsResizing(true); // Disable transitions during resizing
       setWindowSize({ width: window.innerWidth, height: window.innerHeight }); // Update window size
@@ -246,17 +254,35 @@ export default function FontInspector() {
             })}
           </div>
           {/* Dropdown */}
-          <select
-            value={fontWeight}
-            onChange={(e) => handleWeightSelect(e.target.value)}
-            className="w-full md:hidden px-4 py-2 text-sm border rounded-lg bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white border-neutral-300 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-800"
-          >
-            {fontWeights.map((weight) => (
-              <option key={weight.value} value={weight.value}>
-                {weight.label} ({weight.value})
-              </option>
-            ))}
-          </select>
+          <div className="relative w-full md:hidden z-20">
+            <select
+              value={fontWeight}
+              onChange={(e) => handleWeightSelect(e.target.value)}
+              className="appearance-none w-full px-4 py-2 text-sm border rounded-lg bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white border-neutral-300 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-800 pr-10"
+            >
+              {fontWeights.map((weight) => (
+                <option key={weight.value} value={weight.value}>
+                  {weight.label} ({weight.value})
+                </option>
+              ))}
+            </select>
+
+            <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-neutral-500 dark:text-neutral-400">
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
         <div className="relative w-full flex justify-center">
           {/* Glyph */}
